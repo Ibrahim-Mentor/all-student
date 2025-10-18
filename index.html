@@ -77,5 +77,22 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+// Debug script - remove this in production
+setTimeout(() => {
+    console.log('Debug Info:');
+    console.log('- Theme:', localStorage.getItem('theme'));
+    console.log('- Projects Grid:', document.getElementById('projectsGrid'));
+    console.log('- Theme Toggle:', document.getElementById('themeToggle'));
+    console.log('- Student Projects Count:', studentProjects.length);
+    
+    // Force render if projects not showing
+    if (document.getElementById('projectsGrid') && document.getElementById('projectsGrid').children.length === 0) {
+        console.log('Forcing project render...');
+        renderProjects();
+        generateQRcodes();
+    }
+}, 1000);
+</script>
 </body>
 </html>
