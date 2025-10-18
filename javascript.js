@@ -1,5 +1,23 @@
-// Student projects data - easily editable array
+// Student projects data - with the requested links
 const studentProjects = [
+    {
+        name: "Ibrahim",
+        title: "Azan Web Application",
+        url: "https://ibrahim-mentor.github.io/Azan/",
+        description: "A beautiful Islamic prayer times application with Quran recitation features."
+    },
+    {
+        name: "Moiz",
+        title: "Personal Portfolio",
+        url: "https://ibrahim-mentor.github.io/Moiz/",
+        description: "Modern personal portfolio showcasing web development skills and projects."
+    },
+    {
+        name: "Umar",
+        title: "Creative Portfolio",
+        url: "https://ibrahim-mentor.github.io/Umar/",
+        description: "Innovative portfolio design with interactive elements and smooth animations."
+    },
     {
         name: "Ali Khan",
         title: "History Project - Ancient Civilizations",
@@ -17,29 +35,47 @@ const studentProjects = [
         title: "Mathematics Portfolio",
         url: "https://mhassan-math-portfolio.netlify.app",
         description: "Advanced mathematical concepts and problem-solving techniques."
-    },
-    {
-        name: "Fatima Noor",
-        title: "Literature Analysis - Modern Poetry",
-        url: "https://fatima-noor-literature.netlify.app",
-        description: "Critical analysis of contemporary poetic works and their cultural impact."
-    },
-    {
-        name: "Omar Farooq",
-        title: "Computer Science - Web Development",
-        url: "https://omar-farooq-cs.netlify.app",
-        description: "Building responsive web applications with modern frameworks."
-    },
-    {
-        name: "Aisha Rahman",
-        title: "Art Portfolio - Digital Illustration",
-        url: "https://aisha-rahman-art.netlify.app",
-        description: "Collection of digital artworks exploring themes of identity and culture."
     }
 ];
 
+// Theme management
+const theme = {
+    current: localStorage.getItem('theme') || 'light',
+    
+    init() {
+        this.applyTheme(this.current);
+        this.setupToggle();
+    },
+    
+    applyTheme(themeName) {
+        document.documentElement.setAttribute('data-theme', themeName);
+        this.current = themeName;
+        localStorage.setItem('theme', themeName);
+        this.updateToggleButton(themeName);
+    },
+    
+    setupToggle() {
+        const toggleBtn = document.getElementById('themeToggle');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                const newTheme = this.current === 'light' ? 'dark' : 'light';
+                this.applyTheme(newTheme);
+            });
+        }
+    },
+    
+    updateToggleButton(themeName) {
+        const toggleBtn = document.getElementById('themeToggle');
+        const icon = toggleBtn?.querySelector('.theme-icon');
+        if (icon) {
+            icon.textContent = themeName === 'light' ? '🌙' : '☀️';
+        }
+    }
+};
+
 // Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    theme.init();
     initializeApp();
 });
 
@@ -110,7 +146,7 @@ function generateQRcodes() {
                 height: 128,
                 margin: 1,
                 color: {
-                    dark: '#2563eb',
+                    dark: theme.current === 'dark' ? '#3b82f6' : '#2563eb',
                     light: '#ffffff'
                 }
             }, function(error) {
@@ -122,6 +158,7 @@ function generateQRcodes() {
 
             // Make QR code clickable
             qrElement.style.cursor = 'pointer';
+            qrElement.title = `Click to visit ${project.name}'s project`;
             qrElement.addEventListener('click', function() {
                 window.open(project.url, '_blank');
             });
@@ -142,7 +179,7 @@ function shareProject(url, title) {
     } else {
         // Fallback: copy to clipboard
         copyToClipboard(url);
-        alert('Project URL copied to clipboard!');
+        showNotification('Project URL copied to clipboard!');
     }
 }
 
@@ -154,6 +191,49 @@ function copyToClipboard(text) {
     textarea.select();
     document.execCommand('copy');
     document.body.removeChild(textarea);
+}
+
+// Show notification
+function showNotification(message) {
+    // Remove existing notification
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--primary-color);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow-lg);
+        z-index: 10000;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    `;
+
+    document.body.appendChild(notification);
+
+    // Animate in
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    }, 3000);
 }
 
 // Contact form functionality
@@ -174,7 +254,7 @@ function initializeContactForm() {
 
         // Simple validation
         if (!formData.name || !formData.email || !formData.message) {
-            alert('Please fill in all fields.');
+            showNotification('Please fill in all fields.');
             return;
         }
 
@@ -189,6 +269,7 @@ function submitContactForm(formData) {
     const submitBtn = form.querySelector('button[type="submit"]');
     
     // Show loading state
+    const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
     form.classList.add('loading');
@@ -199,33 +280,13 @@ function submitContactForm(formData) {
         form.reset();
         
         // Show success message
-        showSuccessMessage('Thank you for your message! We will get back to you soon.');
+        showNotification('Thank you for your message! We will get back to you soon.');
         
         // Reset button
-        submitBtn.textContent = 'Send Message';
+        submitBtn.textContent = originalText;
         submitBtn.disabled = false;
         form.classList.remove('loading');
     }, 2000);
-}
-
-// Show success message
-function showSuccessMessage(message) {
-    const existingMessage = document.querySelector('.success-message');
-    if (existingMessage) {
-        existingMessage.remove();
-    }
-
-    const successMessage = document.createElement('div');
-    successMessage.className = 'success-message';
-    successMessage.textContent = message;
-
-    const contactForm = document.getElementById('contactForm');
-    contactForm.parentNode.insertBefore(successMessage, contactForm);
-
-    // Remove message after 5 seconds
-    setTimeout(() => {
-        successMessage.remove();
-    }, 5000);
 }
 
 // Utility function to add new projects
@@ -244,10 +305,16 @@ function addNewProject(name, title, url, description = '') {
     }
 }
 
-// Example: How to add a new project
-// addNewProject(
-//     'New Student',
-//     'Project Title',
-//     'https://example.com',
-//     'Project description'
-// );
+// Listen for theme changes to update QR codes
+document.addEventListener('themeChanged', function() {
+    if (document.getElementById('projectsGrid')) {
+        generateQRcodes();
+    }
+});
+
+// Update theme management to dispatch event
+const originalApplyTheme = theme.applyTheme;
+theme.applyTheme = function(themeName) {
+    originalApplyTheme.call(this, themeName);
+    document.dispatchEvent(new CustomEvent('themeChanged'));
+};
