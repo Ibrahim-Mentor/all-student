@@ -402,4 +402,4 @@ body {
     .hero-title { font-size: 2rem; }
     .projects-grid, .contact-content, .footer-content { grid-template-columns: 1fr; }
     .project-actions { flex-direction: column; }
-}/* Responsive */
+}
