@@ -3,47 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aqsa Model High School - Student Projects</title>
+    <title>Aqsa Model High School - Home</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+
     <header class="header">
         <div class="container">
             <div class="nav-brand">
                 <div class="logo-placeholder">
                     <img src="https://via.placeholder.com/40/2563E8/FFFFFF?text=A" alt="Aqsa Model High School Logo">
                 </div>
-                <h1>Aqsa Model High School</h1>
+                <h1><a href="index.html">Aqsa Model High School</a></h1>
             </div>
             <nav class="nav">
                 <ul class="nav-list">
                     <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="courses.html" class="nav-link">Courses</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
-                <div class="theme-toggle">
-                    <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
-                        <span class="theme-icon">🌙</span>
-                    </button>
-                </div>
             </nav>
+            <div class="nav-actions">
+                <a href="cart.html" class="nav-icon-btn" aria-label="View Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-item-count" class="cart-badge">0</span>
+                </a>
+                <a href="profile.html" class="nav-icon-btn" aria-label="My Account">
+                    <i class="fas fa-user-circle"></i>
+                </a>
+                <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
         </div>
     </header>
 
     <main class="main">
-        <div class="container">
-            <section class="hero">
-                <h2 class="hero-title">Student Projects Showcase</h2>
-                <p class="hero-subtitle">Discover the innovative work of our talented students</p>
-            </section>
-
-            <section class="projects-section">
-                <h3 class="section-title">Featured Projects</h3>
-                <div class="projects-grid" id="projectsGrid">
+        <section class="hero-main">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="hero-title-main">Unlock Your Potential</h2>
+                    <p class="hero-subtitle-main">Join Aqsa Model High School and master in-demand skills in tech and design. Start your learning journey today.</p>
+                    <div class="hero-cta-buttons">
+                        <a href="courses.html" class="btn btn-primary btn-lg">Browse Courses</a>
+                        <a href="projects.html" class="btn btn-secondary btn-lg">See Student Work</a>
                     </div>
-            </section>
-        </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-courses container">
+            <h3 class="section-title">Our Popular Courses</h3>
+            <div class="course-grid">
+                <div class="course-card">
+                    <div class="course-card-image">
+                        <img src="https://via.placeholder.com/400x225/3B82F6/FFFFFF?text=Cyber+Security" alt="Cyber Security Course">
+                    </div>
+                    <div class="course-card-content">
+                        <h4 class="course-card-title">Cyber Security Basic</h4>
+                        <p class="course-card-description">Learn the fundamentals of protecting digital assets and infrastructure.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">$49.99</span>
+                            <a href="course-cyber-security.html" class="btn btn-secondary btn-sm">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-card-image">
+                        <img src="https://via.placeholder.com/400x225/10B981/FFFFFF?text=Web+Development" alt="Web Development Course">
+                    </div>
+                    <div class="course-card-content">
+                        <h4 class="course-card-title">Web Development</h4>
+                        <p class="course-card-description">Master HTML, CSS, JavaScript and build modern, responsive websites.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">$99.99</span>
+                            <a href="course-web-dev.html" class="btn btn-secondary btn-sm">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-card-image">
+                        <img src="https://via.placeholder.com/400x225/9333EA/FFFFFF?text=Shopify" alt="Shopify Development Course">
+                    </div>
+                    <div class="course-card-content">
+                        <h4 class="course-card-title">Shopify Development</h4>
+                        <p class="course-card-description">Build and customize e-commerce stores using the powerful Shopify platform.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">$79.99</span>
+                            <a href="course-shopify-dev.html" class="btn btn-secondary btn-sm">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-cta">
+                <a href="courses.html" class="btn btn-primary">View All Courses</a>
+            </div>
+        </section>
+
     </main>
 
     <footer class="footer">
@@ -68,6 +127,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
