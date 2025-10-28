@@ -2,25 +2,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- SITE-WIDE DATA ---
 
-    // Updated with new student info
     const studentProjects = [
         {
             name: "Azan",
             title: "World of Shine - Professional Cleaning Services",
             url: "https://ibrahim-mentor.github.io/Azan/",
             class: "10th Grade",
-            qualifications: "Web Development Student",
+            qualifications: "Web Development",
             quality: "Creative & Dedicated",
-            whatsapp: "923001234567" // Example number
+            whatsapp: "923001234567", // Example number
+            image: "https://source.unsplash.com/150x150/?person,boy" // Added image
         },
         {
             name: "Umar",
             title: "Rayelle - Premium Eyewear",
             url: "https://ibrahim-mentor.github.io/Umar/",
             class: "9th Grade",
-            qualifications: "UI/UX Design Student",
-            quality: "Meticulous & Detail-Oriented",
-            whatsapp: "923011234568" // Example number
+            qualifications: "UI/UX Design",
+            quality: "Detail-Oriented",
+            whatsapp: "923011234568", // Example number
+            image: "https://source.unsplash.com/150x150/?person,man" // Added image
         },
         {
             name: "Moiz",
@@ -29,15 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
             class: "10th Grade",
             qualifications: "Full-Stack Student",
             quality: "Problem Solver",
-            whatsapp: "923021234569" // Example number
+            whatsapp: "923021234569", // Example number
+            image: "https://source.unsplash.com/150x150/?person,teen" // Added image
         }
     ];
 
+    // Updated courses with PKR prices from detail pages
     const courses = [
         {
             id: "cs101",
             title: "Cyber Security Basic",
-            price: 49.99,
+            price: 4500.0, // PKR price
             description: "Learn the fundamentals of protecting digital assets and infrastructure.",
             image: "https://source.unsplash.com/400x225/?cyber,security,code",
             bannerImage: "https://source.unsplash.com/800x450/?cyber,security",
@@ -47,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: "sd101",
             title: "Shopify Development",
-            price: 79.99,
+            price: 5000.0, // PKR price
             description: "Build and customize e-commerce stores using the powerful Shopify platform.",
             image: "https://source.unsplash.com/400x225/?ecommerce,shopify",
             bannerImage: "https://source.unsplash.com/800x450/?ecommerce,shopify",
@@ -57,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: "sc101",
             title: "Shopify Customization",
-            price: 89.99,
+            price: 3500.0, // PKR price
             description: "Master Liquid, JSON, and advanced techniques to customize Shopify themes.",
             image: "https://source.unsplash.com/400x225/?web,design,store",
             bannerImage: "https://source.unsplash.com/800x450/?web,design,store",
@@ -67,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: "wd101",
             title: "Web Development",
-            price: 99.99,
+            price: 3000.0, // PKR price
             description: "Master HTML, CSS, JavaScript and build modern, responsive websites.",
             image: "https://source.unsplash.com/400x225/?web,development,laptop",
             bannerImage: "https://source.unsplash.com/800x450/?web,development,laptop",
@@ -92,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.documentElement.setAttribute('data-theme', this.current);
             localStorage.setItem('theme', this.current);
             this.updateToggleButton();
-            document.dispatchEvent(new Event('themeChanged'));
+            document.dispatchEvent(new Event('themeChanged')); // Fire event for QR code
         },
         updateToggleButton() {
             const icon = document.querySelector('#themeToggle .theme-icon');
@@ -112,20 +115,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Add to Cart
                 if (e.target.closest('.add-to-cart-btn')) {
                     const btn = e.target.closest('.add-to-cart-btn');
-                    const course = {
-                        id: btn.dataset.id,
-                        title: btn.dataset.title,
-                        price: parseFloat(btn.dataset.price),
-                        image: btn.dataset.image || 'https://source.unsplash.com/100x100'
-                    };
-                    this.add(course, btn);
+                    // Ensure all data attributes exist
+                    if (btn.dataset.id && btn.dataset.title && btn.dataset.price) {
+                        const course = {
+                            id: btn.dataset.id,
+                            title: btn.dataset.title,
+                            price: parseFloat(btn.dataset.price),
+                            image: btn.dataset.image || 'https://source.unsplash.com/100x100'
+                        };
+                        this.add(course, btn);
+                    } else {
+                        console.error("Cart button is missing data attributes", btn);
+                    }
                 }
                 // Remove from Cart
                 if (e.target.closest('.btn-remove-cart-item')) {
                     const btn = e.target.closest('.btn-remove-cart-item');
                     this.remove(btn.dataset.id);
                 }
-                // --- New Flip Card Logic ---
                 // Flip to Back
                 if (e.target.closest('.btn-flip')) {
                     const cardFlipper = e.target.closest('.project-card-flipper');
@@ -202,17 +209,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // Page-specific initializations
         if (document.getElementById('projectsGrid')) {
             renderProjects();
+            // Regenerate QR codes if theme changes
             document.addEventListener('themeChanged', () => generateAllQRCodes());
         }
-
         if (document.getElementById('contactForm')) {
             handleContactForm();
         }
-
         if (document.getElementById('all-courses-grid')) {
             renderAllCourses();
         }
-
         if (document.getElementById('cart-items-container')) {
             renderCartPage();
         }
@@ -227,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- RENDER PROJECTS (FLIP CARD) ---
+    // --- RENDER PROJECTS (FLIP CARD with QR) ---
     function renderProjects() {
         const projectsGrid = document.getElementById('projectsGrid');
         if (!projectsGrid) return;
@@ -241,10 +246,13 @@ document.addEventListener('DOMContentLoaded', () => {
             cardFlipper.innerHTML = `
                 <div class="project-card-inner">
                     <div class="project-card-front">
-                        <div>
-                            <h3 class="student-name">${project.name}</h3>
-                            <p class="project-title">${project.title}</p>
+                        <h3 class="student-name">${project.name}</h3>
+                        <p class="project-title">${project.title}</p>
+                        
+                        <div class="qr-container">
+                            <div class="qr-code" id="qr-code-${index}" title="Click to visit project"></div>
                         </div>
+                        
                         <div class="project-actions">
                             <a href="${project.url}" target="_blank" class="btn btn-primary">
                                 <i class="fas fa-external-link-alt"></i> View Website
@@ -256,6 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     
                     <div class="project-card-back">
+                        <img src="${project.image}" alt="${project.name}" class="student-image">
                         <h4>${project.name}'s Details</h4>
                         <ul class="student-info-list">
                             <li><i class="fas fa-graduation-cap"></i><strong>Class:</strong> <span>${project.class}</span></li>
@@ -275,10 +284,12 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             projectsGrid.appendChild(cardFlipper);
         });
+        
+        // Generate QR codes after cards are in the DOM
         generateAllQRCodes();
     }
 
-    // --- QR CODE GENERATION ---
+    // --- QR CODE GENERATION (RESTORED) ---
     function generateAllQRCodes() {
         const isDarkMode = themeManager.current === 'dark';
         const qrColor = isDarkMode ? '#3b82f6' : '#1d4ed8'; // Blue color
@@ -287,9 +298,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const qrElement = document.getElementById(`qr-code-${index}`);
             if (qrElement) {
                 qrElement.innerHTML = ''; // Clear previous QR code
-                // Check if QRCode library is loaded
                 if (typeof QRCode === 'undefined') {
-                    console.error('QRCode.js is not loaded.');
+                    console.error('QRCode.js is not loaded. Make sure to include the script.');
                     return;
                 }
                 new QRCode(qrElement, {
@@ -305,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- RENDER ALL COURSES ---
+    // --- RENDER ALL COURSES (with PKR) ---
     function renderAllCourses() {
         const grid = document.getElementById('all-courses-grid');
         if (!grid) return;
@@ -321,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h4 class="course-card-title">${course.title}</h4>
                     <p class="course-card-description">${course.description}</p>
                     <div class="course-card-footer">
-                        <span class="course-card-price">$${course.price.toFixed(2)}</span>
+                        <span class="course-card-price">PKR ${course.price.toFixed(2)}</span>
                         <a href="${course.url}" class="btn btn-secondary btn-sm">Learn More</a>
                     </div>
                 </div>
@@ -342,7 +352,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- RENDER CART PAGE ---
+    // --- RENDER CART PAGE (with PKR) ---
     function renderCartPage() {
         const container = document.getElementById('cart-items-container');
         const subtotalEl = document.getElementById('cart-subtotal');
@@ -364,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img src="${item.image}" alt="${item.title}" class="cart-item-image">
                     <div class="cart-item-details">
                         <h4 class="cart-item-title">${item.title}</h4>
-                        <p class="cart-item-price">$${item.price.toFixed(2)}</p>
+                        <p class="cart-item-price">PKR ${item.price.toFixed(2)}</p>
                     </div>
                     <button class="btn-remove-cart-item" data-id="${item.id}" aria-label="Remove item"><i class="fas fa-trash-alt"></i></button>
                 `;
@@ -376,9 +386,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const tax = subtotal * 0.10; // 10% tax
         const total = subtotal + tax;
 
-        if (subtotalEl) subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
-        if (taxEl) taxEl.textContent = `$${tax.toFixed(2)}`;
-        if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
+        if (subtotalEl) subtotalEl.textContent = `PKR ${subtotal.toFixed(2)}`;
+        if (taxEl) taxEl.textContent = `PKR ${tax.toFixed(2)}`;
+        if (totalEl) totalEl.textContent = `PKR ${total.toFixed(2)}`;
         
         const checkoutBtn = document.querySelector('.cart-summary .btn-primary');
         if(checkoutBtn) {
@@ -393,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- RENDER CHECKOUT PAGE ---
+    // --- RENDER CHECKOUT PAGE (with PKR) ---
     function renderCheckoutPage() {
         const container = document.getElementById('checkout-summary-items');
         const totalEl = document.getElementById('checkout-total');
@@ -416,7 +426,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="order-summary-item-details">
                         <span class="order-summary-item-title">${item.title}</span>
                     </div>
-                    <span class="order-summary-item-price">$${item.price.toFixed(2)}</span>
+                    <span class="order-summary-item-price">PKR ${item.price.toFixed(2)}</span>
                 `;
                 container.appendChild(itemEl);
             });
@@ -427,10 +437,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const tax = subtotal * 0.10; // 10% tax
         const total = subtotal + tax;
 
-        if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
+        if (totalEl) totalEl.textContent = `PKR ${total.toFixed(2)}`;
     }
 
-    // --- WHATSAPP CHECKOUT ---
+    // --- WHATSAPP CHECKOUT (with PKR) ---
     function handleWhatsAppCheckout() {
         const btn = document.getElementById('whatsapp-checkout-btn');
         if (!btn) return;
@@ -455,9 +465,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let message = `Hello, I'd like to purchase the following courses:\n\n`;
             cart.forEach(item => {
-                message += `* ${item.title} - $${item.price.toFixed(2)}\n`;
+                message += `* ${item.title} - PKR ${item.price.toFixed(2)}\n`;
             });
-            message += `\n*Total (incl. tax): $${total}*\n\n`;
+            message += `\n*Total (incl. tax): PKR ${total}*\n\n`;
             message += `My Details:\n`;
             message += `Name: ${name}\n`;
             message += `Email: ${email}\n`;
