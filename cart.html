@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Aqsa Model High School</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <div class="logo-placeholder">
+                    <img src="https://via.placeholder.com/40/2563E8/FFFFFF?text=A" alt="Aqsa Model High School Logo">
+                </div>
+                <h1><a href="index.html">Aqsa Model High School</a></h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="courses.html" class="nav-link">Courses</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="cart.html" class="nav-icon-btn active" aria-label="View Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-item-count" class="cart-badge">0</span>
+                </a>
+                <a href="profile.html" class="nav-icon-btn" aria-label="My Account">
+                    <i class="fas fa-user-circle"></i>
+                </a>
+                <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="cart-section">
+                <h2 class="section-title">Your Shopping Cart</h2>
+                <div class="cart-layout">
+                    <div class="cart-items-list" id="cart-items-container">
+                        </div>
+
+                    <aside class="cart-summary">
+                        <h4>Order Summary</h4>
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="cart-subtotal">$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax (10%)</span>
+                            <span id="cart-tax">$0.00</span>
+                        </div>
+                        <div class="summary-row total-row">
+                            <span>Total</span>
+                            <span id="cart-total">$0.00</span>
+                        </div>
+                        <a href="checkout.html" class="btn btn-primary btn-lg btn-block">Proceed to Checkout</a>
+                    </aside>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>Aqsa Model High School</h4>
+                    <p>Empowering students through quality education and innovation</p>
+                </div>
+                <div class="footer-contact">
+                    <h5>Contact Us</h5>
+                    <div class="contact-links">
+                        <a href="https://wa.me/921234567890" class="contact-link" target="_blank">📱 WhatsApp</a>
+                        <a href="mailto:info@aqsamodelhs.edu" class="contact-link">✉️ Email</a>
+                        <span class="contact-link">📞 +92 123 4567890</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Aqsa Model High School. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

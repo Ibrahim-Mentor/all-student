@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Aqsa Model High School</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <div class="logo-placeholder">
+                    <img src="https://via.placeholder.com/40/2563E8/FFFFFF?text=A" alt="Aqsa Model High School Logo">
+                </div>
+                <h1><a href="index.html">Aqsa Model High School</a></h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="courses.html" class="nav-link">Courses</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="cart.html" class="nav-icon-btn" aria-label="View Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-item-count" class="cart-badge">0</span>
+                </a>
+                <a href="profile.html" class="nav-icon-btn active" aria-label="My Account">
+                    <i class="fas fa-user-circle"></i>
+                </a>
+                <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="profile-section">
+                <h2 class="section-title">My Account</h2>
+                
+                <div class="profile-layout">
+                    <aside class="profile-nav">
+                        <div class="profile-user-info">
+                            <img src="https://via.placeholder.com/100" alt="User Avatar" class="profile-avatar">
+                            <h3 id="profile-user-name">Ibrahim (Demo)</h3>
+                            <p id="profile-user-email">ibrahim@example.com</p>
+                        </div>
+                        <ul class="profile-nav-list">
+                            <li><a href="#profile-settings" class="profile-nav-link active" data-tab="profile-settings"><i class="fas fa-user-cog"></i> Profile Settings</a></li>
+                            <li><a href="#my-courses" class="profile-nav-link" data-tab="my-courses"><i class="fas fa-book-open"></i> My Courses</a></li>
+                            <li><a href="#my-certificates" class="profile-nav-link" data-tab="my-certificates"><i class="fas fa-certificate"></i> My Certificates</a></li>
+                            <li><a href="#logout" class="profile-nav-link" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </aside>
+                    
+                    <div class="profile-content">
+                        <div id="profile-settings" class="profile-tab-content active">
+                            <h3>Profile Settings</h3>
+                            <form class="profile-form">
+                                <div class="form-group">
+                                    <label for="profile-name">Full Name</label>
+                                    <input type="text" id="profile-name" value="Ibrahim (Demo)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-email">Email</label>
+                                    <input type="email" id="profile-email" value="ibrahim@example.com" disabled>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </form>
+                            
+                            <h3 class="profile-sub-title">Change Password</h3>
+                            <form class="profile-form">
+                                <div class="form-group">
+                                    <label for="profile-pass-current">Current Password</label>
+                                    <input type="password" id="profile-pass-current">
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-pass-new">New Password</label>
+                                    <input type="password" id="profile-pass-new">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update Password</button>
+                            </form>
+                        </div>
+                        
+                        <div id="my-courses" class="profile-tab-content">
+                            <h3>My Courses</h3>
+                            <p>You are not enrolled in any courses yet. (This is a static demo)</p>
+                            </div>
+
+                        <div id="my-certificates" class="profile-tab-content">
+                            <h3>My Certificates</h3>
+                            <p>You have not earned any certificates yet. (This is a static demo)</p>
+                            </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>Aqsa Model High School</h4>
+                    <p>Empowering students through quality education and innovation</p>
+                </div>
+                <div class="footer-contact">
+                    <h5>Contact Us</h5>
+                    <div class="contact-links">
+                        <a href="https://wa.me/921234567890" class="contact-link" target="_blank">📱 WhatsApp</a>
+                        <a href="mailto:info@aqsamodelhs.edu" class="contact-link">✉️ Email</a>
+                        <span class="contact-link">📞 +92 123 4567890</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Aqsa Model High School. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
