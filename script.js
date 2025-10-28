@@ -2,21 +2,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- SITE-WIDE DATA ---
 
+    // Updated with new student info
     const studentProjects = [
         {
             name: "Azan",
             title: "World of Shine - Professional Cleaning Services",
             url: "https://ibrahim-mentor.github.io/Azan/",
+            class: "10th Grade",
+            qualifications: "Web Development Student",
+            quality: "Creative & Dedicated",
+            whatsapp: "923001234567" // Example number
         },
         {
             name: "Umar",
             title: "Rayelle - Premium Eyewear",
             url: "https://ibrahim-mentor.github.io/Umar/",
+            class: "9th Grade",
+            qualifications: "UI/UX Design Student",
+            quality: "Meticulous & Detail-Oriented",
+            whatsapp: "923011234568" // Example number
         },
         {
             name: "Moiz",
             title: "MN Store - Modern Homepage",
             url: "https://ibrahim-mentor.github.io/Moiz/",
+            class: "10th Grade",
+            qualifications: "Full-Stack Student",
+            quality: "Problem Solver",
+            whatsapp: "923021234569" // Example number
         }
     ];
 
@@ -96,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         init() {
             this.updateCartBadge();
             document.addEventListener('click', (e) => {
+                // Add to Cart
                 if (e.target.closest('.add-to-cart-btn')) {
                     const btn = e.target.closest('.add-to-cart-btn');
                     const course = {
@@ -106,9 +120,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     };
                     this.add(course, btn);
                 }
+                // Remove from Cart
                 if (e.target.closest('.btn-remove-cart-item')) {
                     const btn = e.target.closest('.btn-remove-cart-item');
                     this.remove(btn.dataset.id);
+                }
+                // --- New Flip Card Logic ---
+                // Flip to Back
+                if (e.target.closest('.btn-flip')) {
+                    const cardFlipper = e.target.closest('.project-card-flipper');
+                    if (cardFlipper) cardFlipper.classList.add('is-flipped');
+                }
+                // Flip to Front
+                if (e.target.closest('.btn-unflip')) {
+                    const cardFlipper = e.target.closest('.project-card-flipper');
+                    if (cardFlipper) cardFlipper.classList.remove('is-flipped');
                 }
             });
         },
@@ -119,7 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.save();
                 this.updateCartBadge();
                 
-                // Visual feedback
                 btn.textContent = 'Added to Cart!';
                 btn.disabled = true;
                 setTimeout(() => {
@@ -133,11 +158,9 @@ document.addEventListener('DOMContentLoaded', () => {
             this.cart = this.cart.filter(item => item.id !== courseId);
             this.save();
             this.updateCartBadge();
-            // Re-render cart if on cart page
             if (document.getElementById('cart-items-container')) {
                 renderCartPage();
             }
-            // Re-render checkout if on checkout page
             if (document.getElementById('checkout-summary-items')) {
                 renderCheckoutPage();
             }
@@ -193,41 +216,64 @@ document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById('cart-items-container')) {
             renderCartPage();
         }
-
         if (document.getElementById('checkout-summary-items')) {
             renderCheckoutPage();
         }
-
         if (document.getElementById('whatsapp-checkout-btn')) {
             handleWhatsAppCheckout();
         }
-
         if (document.querySelector('.profile-layout')) {
             handleProfileTabs();
         }
     }
 
-    // --- RENDER PROJECTS ---
+    // --- RENDER PROJECTS (FLIP CARD) ---
     function renderProjects() {
         const projectsGrid = document.getElementById('projectsGrid');
         if (!projectsGrid) return;
+        
         projectsGrid.innerHTML = ''; // Clear existing projects
+        
         studentProjects.forEach((project, index) => {
-            const card = document.createElement('div');
-            card.className = 'project-card';
-            card.innerHTML = `
-                <div class="project-header">
-                    <h3 class="student-name">${project.name}</h3>
-                    <p class="project-title">${project.title}</p>
-                </div>
-                <div class="qr-container">
-                    <div class="qr-code" id="qr-code-${index}" title="Click to visit project"></div>
-                </div>
-                <div class="project-actions">
-                    <a href="${project.url}" target="_blank" class="btn btn-primary">Visit Website</a>
+            const cardFlipper = document.createElement('div');
+            cardFlipper.className = 'project-card-flipper';
+            
+            cardFlipper.innerHTML = `
+                <div class="project-card-inner">
+                    <div class="project-card-front">
+                        <div>
+                            <h3 class="student-name">${project.name}</h3>
+                            <p class="project-title">${project.title}</p>
+                        </div>
+                        <div class="project-actions">
+                            <a href="${project.url}" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-external-link-alt"></i> View Website
+                            </a>
+                            <button class="btn btn-secondary btn-flip">
+                                <i class="fas fa-user"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card-back">
+                        <h4>${project.name}'s Details</h4>
+                        <ul class="student-info-list">
+                            <li><i class="fas fa-graduation-cap"></i><strong>Class:</strong> <span>${project.class}</span></li>
+                            <li><i class="fas fa-certificate"></i><strong>Skills:</strong> <span>${project.qualifications}</span></li>
+                            <li><i class="fas fa-star"></i><strong>Quality:</strong> <span>${project.quality}</span></li>
+                            <li>
+                                <i class="fab fa-whatsapp"></i>
+                                <strong>Contact:</strong>
+                                <a href="https://wa.me/${project.whatsapp}" target="_blank">WhatsApp</a>
+                            </li>
+                        </ul>
+                        <button class="btn btn-secondary btn-unflip">
+                            <i class="fas fa-arrow-left"></i> Go Back
+                        </button>
+                    </div>
                 </div>
             `;
-            projectsGrid.appendChild(card);
+            projectsGrid.appendChild(cardFlipper);
         });
         generateAllQRCodes();
     }
@@ -334,7 +380,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (taxEl) taxEl.textContent = `$${tax.toFixed(2)}`;
         if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
         
-        // Disable checkout button if cart is empty
         const checkoutBtn = document.querySelector('.cart-summary .btn-primary');
         if(checkoutBtn) {
             checkoutBtn.disabled = cart.length === 0;
@@ -360,7 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = '';
 
         if (cart.length === 0) {
-            container.innerHTML = ''; // Empty string triggers ::after pseudo-element
+            container.innerHTML = ''; 
             if(btn) btn.disabled = true;
         } else {
             cart.forEach(item => {
@@ -391,7 +436,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!btn) return;
 
         btn.addEventListener('click', () => {
-            // Basic validation
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
@@ -402,14 +446,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const cart = cartManager.getCart();
-            const total = (cartManager.getTotal() * 1.10).toFixed(2); // Total with tax
+            const total = (cartManager.getTotal() * 1.10).toFixed(2);
             
             if (cart.length === 0) {
                 alert('Your cart is empty.');
                 return;
             }
 
-            // Construct WhatsApp message
             let message = `Hello, I'd like to purchase the following courses:\n\n`;
             cart.forEach(item => {
                 message += `* ${item.title} - $${item.price.toFixed(2)}\n`;
@@ -421,11 +464,9 @@ document.addEventListener('DOMContentLoaded', () => {
             message += `Phone: ${phone}\n\n`;
             message += `Please provide payment instructions.`;
 
-            // Replace with your actual WhatsApp number
             const whatsappNumber = "921234567890"; // IMPORTANT: Use your number
             const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-            // Clear cart and redirect
             cartManager.clear();
             window.open(whatsappURL, '_blank');
  
@@ -448,13 +489,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 const tabId = link.dataset.tab;
 
-                if (!tabId) return; // Ignore logout button or others
+                if (!tabId) return; 
 
-                // Update nav links
                 navLinks.forEach(nav => nav.classList.remove('active'));
                 link.classList.add('active');
 
-                // Update tabs
                 tabs.forEach(tab => {
                     if (tab.id === tabId) {
                         tab.classList.add('active');
