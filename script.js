@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             qualifications: "Web Development",
             quality: "Creative & Dedicated",
             whatsapp: "923001234567", // Example number
-            image: "https://source.unsplash.com/150x150/?person,boy" // Added image
+            image: "https://source.unsplash.com/150x150/?person,boy"
         },
         {
             name: "Umar",
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             qualifications: "UI/UX Design",
             quality: "Detail-Oriented",
             whatsapp: "923011234568", // Example number
-            image: "https://source.unsplash.com/150x150/?person,man" // Added image
+            image: "https://source.unsplash.com/150x150/?person,man"
         },
         {
             name: "Moiz",
@@ -31,16 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
             qualifications: "Full-Stack Student",
             quality: "Problem Solver",
             whatsapp: "923021234569", // Example number
-            image: "https://source.unsplash.com/150x150/?person,teen" // Added image
+            image: "https://source.unsplash.com/150x150/?person,teen"
         }
     ];
 
-    // Updated courses with PKR prices from detail pages
     const courses = [
         {
             id: "cs101",
             title: "Cyber Security Basic",
-            price: 4500.0, // PKR price
+            price: 4500.0,
             description: "Learn the fundamentals of protecting digital assets and infrastructure.",
             image: "https://source.unsplash.com/400x225/?cyber,security,code",
             bannerImage: "https://source.unsplash.com/800x450/?cyber,security",
@@ -50,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: "sd101",
             title: "Shopify Development",
-            price: 5000.0, // PKR price
+            price: 5000.0,
             description: "Build and customize e-commerce stores using the powerful Shopify platform.",
             image: "https://source.unsplash.com/400x225/?ecommerce,shopify",
             bannerImage: "https://source.unsplash.com/800x450/?ecommerce,shopify",
@@ -60,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: "sc101",
             title: "Shopify Customization",
-            price: 3500.0, // PKR price
+            price: 3500.0,
             description: "Master Liquid, JSON, and advanced techniques to customize Shopify themes.",
             image: "https://source.unsplash.com/400x225/?web,design,store",
             bannerImage: "https://source.unsplash.com/800x450/?web,design,store",
@@ -70,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: "wd101",
             title: "Web Development",
-            price: 3000.0, // PKR price
+            price: 3000.0,
             description: "Master HTML, CSS, JavaScript and build modern, responsive websites.",
             image: "https://source.unsplash.com/400x225/?web,development,laptop",
             bannerImage: "https://source.unsplash.com/800x450/?web,development,laptop",
@@ -95,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.documentElement.setAttribute('data-theme', this.current);
             localStorage.setItem('theme', this.current);
             this.updateToggleButton();
-            document.dispatchEvent(new Event('themeChanged')); // Fire event for QR code
+            document.dispatchEvent(new Event('themeChanged'));
         },
         updateToggleButton() {
             const icon = document.querySelector('#themeToggle .theme-icon');
@@ -112,10 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
         init() {
             this.updateCartBadge();
             document.addEventListener('click', (e) => {
-                // Add to Cart
                 if (e.target.closest('.add-to-cart-btn')) {
                     const btn = e.target.closest('.add-to-cart-btn');
-                    // Ensure all data attributes exist
                     if (btn.dataset.id && btn.dataset.title && btn.dataset.price) {
                         const course = {
                             id: btn.dataset.id,
@@ -128,17 +125,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         console.error("Cart button is missing data attributes", btn);
                     }
                 }
-                // Remove from Cart
                 if (e.target.closest('.btn-remove-cart-item')) {
                     const btn = e.target.closest('.btn-remove-cart-item');
                     this.remove(btn.dataset.id);
                 }
-                // Flip to Back
                 if (e.target.closest('.btn-flip')) {
                     const cardFlipper = e.target.closest('.project-card-flipper');
                     if (cardFlipper) cardFlipper.classList.add('is-flipped');
                 }
-                // Flip to Front
                 if (e.target.closest('.btn-unflip')) {
                     const cardFlipper = e.target.closest('.project-card-flipper');
                     if (cardFlipper) cardFlipper.classList.remove('is-flipped');
@@ -206,10 +200,8 @@ document.addEventListener('DOMContentLoaded', () => {
         themeManager.init();
         cartManager.init();
 
-        // Page-specific initializations
         if (document.getElementById('projectsGrid')) {
             renderProjects();
-            // Regenerate QR codes if theme changes
             document.addEventListener('themeChanged', () => generateAllQRCodes());
         }
         if (document.getElementById('contactForm')) {
@@ -237,20 +229,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const projectsGrid = document.getElementById('projectsGrid');
         if (!projectsGrid) return;
         
-        projectsGrid.innerHTML = ''; // Clear existing projects
+        projectsGrid.innerHTML = '';
         
         studentProjects.forEach((project, index) => {
             const cardFlipper = document.createElement('div');
             cardFlipper.className = 'project-card-flipper';
             
+            // === JAVASCRIPT FIX IS HERE ===
             cardFlipper.innerHTML = `
                 <div class="project-card-inner">
                     <div class="project-card-front">
-                        <h3 class="student-name">${project.name}</h3>
-                        <p class="project-title">${project.title}</p>
-                        
-                        <div class="qr-container">
-                            <div class="qr-code" id="qr-code-${index}" title="Click to visit project"></div>
+                        <div class="card-content-top">
+                            <h3 class="student-name">${project.name}</h3>
+                            <p class="project-title">${project.title}</p>
+                            
+                            <div class="qr-container">
+                                <div class="qr-code" id="qr-code-${index}" title="Click to visit project"></div>
+                            </div>
                         </div>
                         
                         <div class="project-actions">
@@ -282,22 +277,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
             `;
+            // === END JAVASCRIPT FIX ===
+            
             projectsGrid.appendChild(cardFlipper);
         });
         
-        // Generate QR codes after cards are in the DOM
         generateAllQRCodes();
     }
 
     // --- QR CODE GENERATION (RESTORED) ---
     function generateAllQRCodes() {
         const isDarkMode = themeManager.current === 'dark';
-        const qrColor = isDarkMode ? '#3b82f6' : '#1d4ed8'; // Blue color
+        const qrColor = isDarkMode ? '#3b82f6' : '#1d4ed8';
 
         studentProjects.forEach((project, index) => {
             const qrElement = document.getElementById(`qr-code-${index}`);
             if (qrElement) {
-                qrElement.innerHTML = ''; // Clear previous QR code
+                qrElement.innerHTML = '';
                 if (typeof QRCode === 'undefined') {
                     console.error('QRCode.js is not loaded. Make sure to include the script.');
                     return;
@@ -383,7 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const subtotal = cartManager.getTotal();
-        const tax = subtotal * 0.10; // 10% tax
+        const tax = subtotal * 0.10;
         const total = subtotal + tax;
 
         if (subtotalEl) subtotalEl.textContent = `PKR ${subtotal.toFixed(2)}`;
@@ -434,7 +430,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const subtotal = cartManager.getTotal();
-        const tax = subtotal * 0.10; // 10% tax
+        const tax = subtotal * 0.10;
         const total = subtotal + tax;
 
         if (totalEl) totalEl.textContent = `PKR ${total.toFixed(2)}`;
@@ -474,7 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
             message += `Phone: ${phone}\n\n`;
             message += `Please provide payment instructions.`;
 
-            const whatsappNumber = "921234567890"; // IMPORTANT: Use your number
+            const whatsappNumber = "921234567890";
             const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
             cartManager.clear();

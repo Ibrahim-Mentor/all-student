@@ -7,7 +7,6 @@
 }
 
 :root {
-    /* Reverted to original Blue Color Scheme */
     --primary-color: #2563eb;
     --primary-dark: #1d4ed8;
     --primary-light: #dbeafe;
@@ -121,11 +120,11 @@ body {
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
-    padding: 0.75rem 1rem; /* Adjusted padding */
-    border-radius: 6px 6px 0 0; /* Rounded top corners */
+    padding: 0.75rem 1rem;
+    border-radius: 6px 6px 0 0;
     transition: all 0.3s ease;
     position: relative;
-    border-bottom: 3px solid transparent; /* Tab underline space */
+    border-bottom: 3px solid transparent;
 }
 .nav-link:hover {
     color: var(--primary-color);
@@ -134,7 +133,7 @@ body {
 .nav-link.active {
     color: var(--primary-color);
     font-weight: 600;
-    border-bottom: 3px solid var(--primary-color); /* Active tab underline */
+    border-bottom: 3px solid var(--primary-color);
 }
 
 .nav-actions {
@@ -205,7 +204,7 @@ body {
     padding: 3rem 0;
 }
 .main > .container > section + section {
-    margin-top: 4rem; /* Added spacing between sections */
+    margin-top: 4rem;
 }
 
 /* Hero Section (Original) */
@@ -300,7 +299,7 @@ body {
 }
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3); /* Reverted shadow color */
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
 }
 .btn-secondary {
     background: var(--surface-color);
@@ -329,7 +328,7 @@ body {
     margin-right: 0.5rem;
 }
 
-/* --- New Student Project Flip Card --- */
+/* --- Student Project Flip Card Fix --- */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -338,7 +337,7 @@ body {
 
 .project-card-flipper {
     perspective: 1000px;
-    min-height: 400px; /* Increased height for QR code */
+    min-height: 400px;
 }
 
 .project-card-inner {
@@ -376,7 +375,6 @@ body {
     transition: all 0.3s ease;
 }
 
-/* New "Wave" Hover Effect */
 .project-card-flipper:hover .project-card-front {
     transform: translateY(-5px) rotateY(3deg);
     box-shadow: var(--shadow-lg);
@@ -395,7 +393,14 @@ body {
     margin-bottom: 1rem;
     min-height: 40px;
 }
-/* QR Code Container */
+
+/* === CSS FIX IS HERE === */
+/* New wrapper for top content */
+.card-content-top {
+    flex-grow: 1; /* This pushes .project-actions to the bottom */
+    display: flex;
+    flex-direction: column;
+}
 .qr-container {
     display: flex;
     justify-content: center;
@@ -403,8 +408,10 @@ body {
     padding: 1rem;
     background: var(--background-color);
     border-radius: 12px;
-    flex-grow: 1; /* Pushes buttons to bottom */
+    flex-grow: 1; /* This makes the QR container fill the space inside the top wrapper */
 }
+/* === END CSS FIX === */
+
 .qr-code {
     background: white;
     padding: 10px;
@@ -419,14 +426,14 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    margin-top: 1rem;
+    /* Removed margin-top: 1rem; This was the bug */
 }
 
 /* Back Face Styles */
 .project-card-back {
     transform: rotateY(180deg);
     padding: 2rem;
-    align-items: center; /* Center content */
+    align-items: center;
 }
 
 .student-image {
@@ -455,7 +462,7 @@ body {
     align-items: center;
     gap: 0.75rem;
     margin-bottom: 0.75rem;
-    font-size: 0.9rem; /* Slightly smaller */
+    font-size: 0.9rem;
 }
 .student-info-list li i {
     color: var(--primary-color);
@@ -465,7 +472,7 @@ body {
 }
 .student-info-list li strong {
     color: var(--text-secondary);
-    width: 80px; /* Align values */
+    width: 80px;
 }
 .student-info-list li span, .student-info-list li a {
     color: var(--text-primary);
