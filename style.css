@@ -203,7 +203,8 @@ body {
     min-height: calc(100vh - 200px);
     padding: 3rem 0;
 }
-.main > .container > section + section {
+/* === CSS FIX 2 (Spacing) === */
+main > .container + .container {
     margin-top: 4rem;
 }
 
@@ -328,7 +329,7 @@ body {
     margin-right: 0.5rem;
 }
 
-/* --- Student Project Flip Card Fix --- */
+/* --- Student Project Flip Card --- */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -337,7 +338,8 @@ body {
 
 .project-card-flipper {
     perspective: 1000px;
-    min-height: 400px;
+    /* === CSS FIX 1 (Height) === */
+    min-height: 450px; 
 }
 
 .project-card-inner {
@@ -394,8 +396,7 @@ body {
     min-height: 40px;
 }
 
-/* === CSS FIX IS HERE === */
-/* New wrapper for top content */
+/* Wrapper for top content */
 .card-content-top {
     flex-grow: 1; /* This pushes .project-actions to the bottom */
     display: flex;
@@ -410,7 +411,6 @@ body {
     border-radius: 12px;
     flex-grow: 1; /* This makes the QR container fill the space inside the top wrapper */
 }
-/* === END CSS FIX === */
 
 .qr-code {
     background: white;
@@ -426,7 +426,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    /* Removed margin-top: 1rem; This was the bug */
 }
 
 /* Back Face Styles */
