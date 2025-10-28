@@ -24,34 +24,42 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: "cs101",
             title: "Cyber Security Basic",
-            description: "Learn the fundamentals of protecting digital assets and infrastructure.",
             price: 49.99,
-            image: "https://via.placeholder.com/400x225/3B82F6/FFFFFF?text=Cyber+Security",
+            description: "Learn the fundamentals of protecting digital assets and infrastructure.",
+            image: "https://source.unsplash.com/400x225/?cyber,security,code",
+            bannerImage: "https://source.unsplash.com/800x450/?cyber,security",
+            thumbImage: "https://source.unsplash.com/100x100/?cyber,security",
             url: "course-cyber-security.html"
         },
         {
             id: "sd101",
             title: "Shopify Development",
-            description: "Build and customize e-commerce stores using the powerful Shopify platform.",
             price: 79.99,
-            image: "https://via.placeholder.com/400x225/9333EA/FFFFFF?text=Shopify+Dev",
-            url: "course-shopify-dev.html" // You will need to create this page
+            description: "Build and customize e-commerce stores using the powerful Shopify platform.",
+            image: "https://source.unsplash.com/400x225/?ecommerce,shopify",
+            bannerImage: "https://source.unsplash.com/800x450/?ecommerce,shopify",
+            thumbImage: "https://source.unsplash.com/100x100/?ecommerce,shopify",
+            url: "course-shopify-dev.html"
         },
         {
             id: "sc101",
             title: "Shopify Customization",
-            description: "Master Liquid, JSON, and advanced techniques to customize Shopify themes.",
             price: 89.99,
-            image: "https://via.placeholder.com/400x225/D97706/FFFFFF?text=Shopify+Custom",
-            url: "course-shopify-custom.html" // You will need to create this page
+            description: "Master Liquid, JSON, and advanced techniques to customize Shopify themes.",
+            image: "https://source.unsplash.com/400x225/?web,design,store",
+            bannerImage: "https://source.unsplash.com/800x450/?web,design,store",
+            thumbImage: "https://source.unsplash.com/100x100/?web,design",
+            url: "course-shopify-custom.html"
         },
         {
             id: "wd101",
             title: "Web Development",
-            description: "Master HTML, CSS, JavaScript and build modern, responsive websites.",
             price: 99.99,
-            image: "https://via.placeholder.com/400x225/10B981/FFFFFF?text=Web+Development",
-            url: "course-web-dev.html" // You will need to create this page
+            description: "Master HTML, CSS, JavaScript and build modern, responsive websites.",
+            image: "https://source.unsplash.com/400x225/?web,development,laptop",
+            bannerImage: "https://source.unsplash.com/800x450/?web,development,laptop",
+            thumbImage: "https://source.unsplash.com/100x100/?web,development",
+            url: "course-web-dev.html"
         }
     ];
 
@@ -94,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         id: btn.dataset.id,
                         title: btn.dataset.title,
                         price: parseFloat(btn.dataset.price),
-                        image: btn.dataset.image || 'https://via.placeholder.com/100x100'
+                        image: btn.dataset.image || 'https://source.unsplash.com/100x100'
                     };
                     this.add(course, btn);
                 }
@@ -233,6 +241,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const qrElement = document.getElementById(`qr-code-${index}`);
             if (qrElement) {
                 qrElement.innerHTML = ''; // Clear previous QR code
+                // Check if QRCode library is loaded
+                if (typeof QRCode === 'undefined') {
+                    console.error('QRCode.js is not loaded.');
+                    return;
+                }
                 new QRCode(qrElement, {
                     text: project.url,
                     width: 128,
@@ -320,12 +333,26 @@ document.addEventListener('DOMContentLoaded', () => {
         if (subtotalEl) subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
         if (taxEl) taxEl.textContent = `$${tax.toFixed(2)}`;
         if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
+        
+        // Disable checkout button if cart is empty
+        const checkoutBtn = document.querySelector('.cart-summary .btn-primary');
+        if(checkoutBtn) {
+            checkoutBtn.disabled = cart.length === 0;
+            if (cart.length === 0) {
+                checkoutBtn.style.opacity = '0.6';
+                checkoutBtn.style.cursor = 'not-allowed';
+            } else {
+                checkoutBtn.style.opacity = '1';
+                checkoutBtn.style.cursor = 'pointer';
+            }
+        }
     }
 
     // --- RENDER CHECKOUT PAGE ---
     function renderCheckoutPage() {
         const container = document.getElementById('checkout-summary-items');
         const totalEl = document.getElementById('checkout-total');
+        const btn = document.getElementById('whatsapp-checkout-btn');
 
         if (!container) return;
 
@@ -333,9 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = '';
 
         if (cart.length === 0) {
-            container.innerHTML = '<p>Your cart is empty.</p>';
-            // Disable checkout button
-            const btn = document.getElementById('whatsapp-checkout-btn');
+            container.innerHTML = ''; // Empty string triggers ::after pseudo-element
             if(btn) btn.disabled = true;
         } else {
             cart.forEach(item => {
@@ -350,6 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 container.appendChild(itemEl);
             });
+            if(btn) btn.disabled = false;
         }
 
         const subtotal = cartManager.getTotal();
@@ -402,9 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Clear cart and redirect
             cartManager.clear();
             window.open(whatsappURL, '_blank');
-
-            // Redirect to a thank you page (optional)
-            // window.location.href = 'thank-you.html'; 
+ 
             alert('Redirecting to WhatsApp to complete your order. Your cart has been cleared.');
             setTimeout(() => {
                 window.location.href = 'index.html';
@@ -417,12 +441,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const navLinks = document.querySelectorAll('.profile-nav-link');
         const tabs = document.querySelectorAll('.profile-tab-content');
 
+        if (!navLinks.length) return;
+
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const tabId = link.dataset.tab;
 
-                if (!tabId) return; // Ignore logout button
+                if (!tabId) return; // Ignore logout button or others
 
                 // Update nav links
                 navLinks.forEach(nav => nav.classList.remove('active'));
@@ -440,6 +466,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- START THE APPLICATION ---
+    // Start the application
     initializeApp();
 });

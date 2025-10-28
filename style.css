@@ -28,15 +28,15 @@
     --primary-dark: #2563eb;
     --primary-light: #1e3a8a;
     --secondary-color: #94a3b8;
-    --background-color: #0f172a;
-    --surface-color: #1e293b;
+    --background-color: #0f172a; /* Main background (darkest) */
+    --surface-color: #1e293b;     /* Header, Footer, and Card background (lighter) */
     --text-primary: #f1f5f9;
     --text-secondary: #cbd5e1;
     --border-color: #334155;
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
     --card-bg: #1e293b;
-    --footer-bg: #0f172a;
+    --footer-bg: #1e293b;     /* <-- This is the dark mode fix */
 }
 
 body {
@@ -151,6 +151,7 @@ body {
     justify-content: center;
     position: relative;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 .nav-icon-btn:hover, .nav-icon-btn.active {
     color: var(--primary-color);
@@ -465,6 +466,8 @@ body {
     width: 100%;
     border-radius: 12px;
     margin-bottom: 2rem;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
 }
 .course-detail-main h3 {
     font-size: 1.5rem;
@@ -615,14 +618,17 @@ body {
     padding: 1.5rem;
     border-radius: 16px;
     border: 1px solid var(--border-color);
+    min-height: 200px;
 }
-#cart-items-container:empty::after {
-    content: "Your cart is empty.";
-    display: block;
+.cart-empty-message {
     text-align: center;
     padding: 3rem 0;
     color: var(--text-secondary);
     font-size: 1.1rem;
+}
+.cart-empty-message a {
+    color: var(--primary-color);
+    font-weight: 500;
 }
 .cart-item {
     display: flex;
@@ -731,6 +737,13 @@ body {
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 1rem;
 }
+.order-summary-items:empty {
+    padding: 1rem 0;
+    color: var(--text-secondary);
+}
+.order-summary-items:empty::after {
+    content: "Your cart is empty.";
+}
 .order-summary-item {
     display: flex;
     justify-content: space-between;
@@ -741,6 +754,7 @@ body {
 .order-summary-item img {
     width: 60px;
     height: 60px;
+    object-fit: cover;
     border-radius: 8px;
 }
 .order-summary-item-details {
@@ -748,9 +762,11 @@ body {
 }
 .order-summary-item-title {
     font-weight: 500;
+    font-size: 0.9rem;
 }
 .order-summary-item-price {
     font-weight: 500;
+    font-size: 0.9rem;
 }
 .checkout-notice {
     font-size: 0.9rem;
@@ -786,6 +802,7 @@ body {
     border-radius: 50%;
     margin-bottom: 1rem;
     border: 3px solid var(--primary-color);
+    object-fit: cover;
 }
 .profile-user-info h3 {
     font-size: 1.25rem;
