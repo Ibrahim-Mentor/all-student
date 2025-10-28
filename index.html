@@ -3,97 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Aqsa Model High School</title>
+    <title>Aqsa Model High School - Student Projects</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 </head>
 <body>
-
     <header class="header">
         <div class="container">
             <div class="nav-brand">
                 <div class="logo-placeholder">
-                   <img src="https://via.placeholder.com/40/2563E8/FFFFFF?text=A" alt="Aqsa Model High School Logo">
+                    <img src="https://via.placeholder.com/40/2563E8/FFFFFF?text=A" alt="Aqsa Model High School Logo">
                 </div>
-                <h1><a href="index.html">Aqsa Model High School</a></h1>
+                <h1>Aqsa Model High School</h1>
             </div>
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="courses.html" class="nav-link">Courses</a></li>
-                    <li><a href="projects.html" class="nav-link">Projects</a></li>
-                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
+                <div class="theme-toggle">
+                    <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                </div>
             </nav>
-            <div class="nav-actions">
-                <a href="cart.html" class="nav-icon-btn" aria-label="View Cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span id="cart-item-count" class="cart-badge">0</span>
-                </a>
-                <a href="profile.html" class="nav-icon-btn" aria-label="My Account">
-                    <i class="fas fa-user-circle"></i>
-                </a>
-                <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
-                    <span class="theme-icon">🌙</span>
-                </button>
-            </div>
         </div>
     </header>
 
     <main class="main">
         <div class="container">
-            <section class="contact-section">
-                <h2 class="section-title">Contact Us</h2>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <h3>Get in Touch</h3>
-                        <p>We'd love to hear from you. Here's how you can reach us:</p>
-                        
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <span class="contact-icon">📞</span>
-                                <div>
-                                    <h4>Phone</h4>
-                                    <p>+92 123 4567890</p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <span class="contact-icon">✉️</span>
-                                <div>
-                                    <h4>Email</h4>
-                                    <p>info@aqsamodelhs.edu</p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <span class="contact-icon">📱</span>
-                                <div>
-                                    <h4>WhatsApp</h4>
-                                    <p>+92 123 4567890</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <section class="hero">
+                <h2 class="hero-title">Student Projects Showcase</h2>
+                <p class="hero-subtitle">Discover the innovative work of our talented students</p>
+            </section>
 
-                    <div class="contact-form-container">
-                        <h3>Send us a Message</h3>
-                        <form class="contact-form" id="contactForm">
-                            <div class="form-group">
-                                <label for="name">Your Name</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Your Email</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Your Message</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                        </form>
+            <section class="projects-section">
+                <h3 class="section-title">Featured Projects</h3>
+                <div class="projects-grid" id="projectsGrid">
                     </div>
-                </div>
             </section>
         </div>
     </main>
