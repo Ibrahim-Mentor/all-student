@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Cyber Security Basic",
             price: 4500.0,
             description: "Learn the fundamentals of protecting digital assets and infrastructure.",
-            image: "https://source.unsplash.com/400x225/?cyber,security,code",
+            image: "img/course/cyber.png",
             bannerImage: "https://source.unsplash.com/800x450/?cyber,security",
             thumbImage: "https://source.unsplash.com/100x100/?cyber,security",
             url: "course-cyber-security.html"
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Shopify Development",
             price: 5000.0,
             description: "Build and customize e-commerce stores using the powerful Shopify platform.",
-            image: "https://source.unsplash.com/400x225/?ecommerce,shopify",
+            image: "img/course/shopify-dev.png",
             bannerImage: "https://source.unsplash.com/800x450/?ecommerce,shopify",
             thumbImage: "https://source.unsplash.com/100x100/?ecommerce,shopify",
             url: "course-shopify-dev.html"
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Shopify Customization",
             price: 3500.0,
             description: "Master Liquid, JSON, and advanced techniques to customize Shopify themes.",
-            image: "https://source.unsplash.com/400x225/?web,design,store",
+            image: "img/course/shopify-cus.png",
             bannerImage: "https://source.unsplash.com/800x450/?web,design,store",
             thumbImage: "https://source.unsplash.com/100x100/?web,design",
             url: "course-shopify-custom.html"
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Web Development",
             price: 3000.0,
             description: "Master HTML, CSS, JavaScript and build modern, responsive websites.",
-            image: "https://source.unsplash.com/400x225/?web,development,laptop",
+            image: "img/course/web.png",
             bannerImage: "https://source.unsplash.com/800x450/?web,development,laptop",
             thumbImage: "https://source.unsplash.com/100x100/?web,development",
             url: "course-web-dev.html"
