@@ -338,7 +338,6 @@ main > .container + .container {
 
 .project-card-flipper {
     perspective: 1000px;
-    /* === CSS FIX 1 (Height) === */
     min-height: 450px; 
 }
 
@@ -346,12 +345,13 @@ main > .container + .container {
     position: relative;
     width: 100%;
     height: 100%;
-    /* === CHANGE 1: Updated animation === */
-    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+    /* === CHANGE 1: New "come-back" transition === */
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transform-style: preserve-3d;
 }
 
 .project-card-flipper.is-flipped .project-card-inner {
+    /* Spin 180 degrees */
     transform: rotateY(180deg);
 }
 
@@ -378,9 +378,10 @@ main > .container + .container {
     transition: all 0.3s ease;
 }
 
+/* === CHANGE 2: Apply bounce animation on hover === */
 .project-card-flipper:hover .project-card-front {
-    /* === CHANGE 2: Removed rotateY(3deg) to fix button clicking === */
-    transform: translateY(-5px);
+    /* We remove the simple transform and apply an animation */
+    animation: bounce-up-down 0.7s ease-in-out infinite;
     box-shadow: var(--shadow-lg);
 }
 
@@ -400,7 +401,7 @@ main > .container + .container {
 
 /* Wrapper for top content */
 .card-content-top {
-    flex-grow: 1; /* This pushes .project-actions to the bottom */
+    flex-grow: 1; 
     display: flex;
     flex-direction: column;
 }
@@ -411,7 +412,7 @@ main > .container + .container {
     padding: 1rem;
     background: var(--background-color);
     border-radius: 12px;
-    flex-grow: 1; /* This makes the QR container fill the space inside the top wrapper */
+    flex-grow: 1; 
 }
 
 .qr-code {
@@ -1087,6 +1088,16 @@ main > .container + .container {
     color: #94a3b8;
 }
 
+/* === CHANGE 3: Add the keyframe animation for the bounce === */
+@keyframes bounce-up-down {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
 /* Responsive */
 @media (max-width: 992px) {
     .course-detail-layout, .cart-layout, .checkout-layout, .profile-layout {
@@ -1129,6 +1140,11 @@ main > .container + .container {
     
     .contact-content { grid-template-columns: 1fr; }
     .footer-content { grid-template-columns: 1fr; }
+
+    /* Disable hover animation on mobile to save resources */
+    .project-card-flipper:hover .project-card-front {
+        animation: none;
+    }
 }
 .featured-courses {
     margin-top: 100px;
