@@ -1128,3 +1128,6 @@ main > .container + .container {
     .contact-content { grid-template-columns: 1fr; }
     .footer-content { grid-template-columns: 1fr; }
 }
+section.featured-courses {
+    margin-top: 100px;
+}
