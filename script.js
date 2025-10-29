@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const cardFlipper = document.createElement('div');
             cardFlipper.className = 'project-card-flipper';
             
-            // === JAVASCRIPT FIX IS HERE ===
+            // === JAVASCRIPT CHANGES ARE HERE ===
             cardFlipper.innerHTML = `
                 <div class="project-card-inner">
                     <div class="project-card-front">
@@ -250,10 +250,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         
                         <div class="project-actions">
                             <a href="${project.url}" target="_blank" class="btn btn-primary">
-                                <i class="fas fa-external-link-alt"></i> View Website
+                                View Website
                             </a>
                             <button class="btn btn-secondary btn-flip">
-                                <i class="fas fa-user"></i> View Details
+                                View Details
                             </button>
                         </div>
                     </div>
@@ -271,13 +271,13 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <a href="https://wa.me/${project.whatsapp}" target="_blank">WhatsApp</a>
                             </li>
                         </ul>
-                        <button class="btn btn-secondary btn-unflip">
-                            <i class="fas fa-arrow-left"></i> Go Back
+                        <button class="btn btn-secondary btn-block btn-unflip">
+                            Go Back
                         </button>
                     </div>
                 </div>
             `;
-            // === END JAVASCRIPT FIX ===
+            // === END JAVASCRIPT CHANGES ===
             
             projectsGrid.appendChild(cardFlipper);
         });
