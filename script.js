@@ -7,30 +7,30 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Azan",
             title: "World of Shine - Professional Cleaning Services",
             url: "https://ibrahim-mentor.github.io/Azan/",
-            class: "10th Grade",
+            class: "8th Grade",
             qualifications: "Web Development",
             quality: "Creative & Dedicated",
-            whatsapp: "923001234567", // Example number
+            whatsapp: "923176428132",
             image: "https://source.unsplash.com/150x150/?person,boy"
         },
         {
             name: "Umar",
             title: "Rayelle - Premium Eyewear",
             url: "https://ibrahim-mentor.github.io/Umar/",
-            class: "9th Grade",
+            class: "8th Grade",
             qualifications: "UI/UX Design",
             quality: "Detail-Oriented",
-            whatsapp: "923011234568", // Example number
+            whatsapp: "923356461817", 
             image: "https://source.unsplash.com/150x150/?person,man"
         },
         {
             name: "Moiz",
             title: "MN Store - Modern Homepage",
             url: "https://ibrahim-mentor.github.io/Moiz/",
-            class: "10th Grade",
+            class: "8th Grade",
             qualifications: "Full-Stack Student",
             quality: "Problem Solver",
-            whatsapp: "923021234569", // Example number
+            whatsapp: "923160072910", 
             image: "https://source.unsplash.com/150x150/?person,teen"
         }
     ];
