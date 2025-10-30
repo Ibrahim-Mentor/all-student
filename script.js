@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: "Umar",
             title: "Nokia Car Game",
-            url: "https://ibrahim-mentor.github.io/umar-car-game/",
+            url: "https://ibrahim-mentor.github.io/nokia-car-game/",
             class: "8th Grade",
             qualifications: "Full Stack with Technical Skills",
             quality: "Detail-Oriented",
