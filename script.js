@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: "Azan",
             title: "World of Shine - Professional Cleaning Services",
-            url: "https://ibrahim-mentor.github.io/Azan/",
+            url: "https://ibrahim-mentor.github.io/azan/",
             class: "8th Grade",
             qualifications: "Web Development",
             quality: "Creative & Dedicated",
@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: "Umar",
             title: "Rayelle - Premium Eyewear",
-            url: "https://ibrahim-mentor.github.io/Umar/",
+            url: "https://ibrahim-mentor.github.io/umar-store/",
             class: "8th Grade",
-            qualifications: "UI/UX Design",
+            qualifications: "Full Stack with Technical Skills",
             quality: "Detail-Oriented",
             whatsapp: "923356461817", 
             image: "https://source.unsplash.com/150x150/?person,man"
@@ -26,12 +26,22 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: "Moiz",
             title: "MN Store - Modern Homepage",
-            url: "https://ibrahim-mentor.github.io/Moiz/",
+            url: "https://ibrahim-mentor.github.io/moiz/",
             class: "8th Grade",
             qualifications: "Full-Stack Student",
             quality: "Problem Solver",
             whatsapp: "923160072910", 
             image: "https://source.unsplash.com/150x150/?person,teen"
+        },
+        {
+            name: "Umar",
+            title: "Nokia Car Game",
+            url: "https://ibrahim-mentor.github.io/umar-car-game/",
+            class: "8th Grade",
+            qualifications: "Full Stack with Technical Skills",
+            quality: "Detail-Oriented",
+            whatsapp: "923356461817", 
+            image: "https://source.unsplash.com/150x150/?person,man"
         }
     ];
 
