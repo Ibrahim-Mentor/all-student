@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             projectClass: "Special Class",
             qualifications: "Full Stack with Technical Skills",
             quality: "Detail-Oriented",
-            whatsapp: "923356461817", 
+            whatsapp: "923356461817",
             image: "https://source.unsplash.com/150x150/?person,man"
         },
         {
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             projectClass: "Special Class",
             qualifications: "Full-Stack Student",
             quality: "Problem Solver",
-            whatsapp: "923160072910", 
+            whatsapp: "923160072910",
             image: "https://source.unsplash.com/150x150/?person,teen"
         },
         {
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             projectClass: "Special Class",
             qualifications: "Full Stack with Technical Skills",
             quality: "Detail-Oriented",
-            whatsapp: "923356461817", 
+            whatsapp: "923356461817",
             image: "https://source.unsplash.com/150x150/?person,man"
         },
 
@@ -575,7 +575,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         studentProjects.forEach((project, index) => {
             const targetGrid = grids[project.projectClass];
-            if (!targetGrid) return; 
+            if (!targetGrid) return;
             
             const cardFlipper = document.createElement('div');
             cardFlipper.className = 'project-card-flipper';
@@ -689,8 +689,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- LOAD MORE BUTTON LOGIC ---
     function initializeLoadMore() {
         const isMobile = window.innerWidth <= 768;
-        const initialShow = isMobile ? 4 : 8;
-        const loadIncrement = isMobile ? 4 : 8;
+        
+        // --- UPDATED VALUES ---
+        // Show 3 initially on mobile, 6 on desktop
+        const initialShow = isMobile ? 3 : 6;
+        // Load 3 more on click for both mobile and desktop
+        const loadIncrement = 3;
+        // --- END UPDATED VALUES ---
 
         const loadMoreButtons = document.querySelectorAll('.load-more-btn');
 
@@ -704,32 +709,43 @@ document.addEventListener('DOMContentLoaded', () => {
             // Hide projects beyond the initial limit
             projects.forEach((project, index) => {
                 if (index >= initialShow) {
-                    project.classList.add('hidden-project');
+                    // Use style.display to hide/show
+                    project.style.display = 'none'; 
+                } else {
+                    project.style.display = 'block';
                 }
             });
 
             // If not enough projects to hide, hide the button
             if (projects.length <= initialShow) {
-                button.classList.add('hidden-btn');
+                button.style.display = 'none';
+            } else {
+                // Ensure button is visible if there are more projects
+                button.style.display = 'inline-block'; 
             }
 
             // Add click event
             button.addEventListener('click', () => {
-                const hiddenProjects = grid.querySelectorAll('.project-card-flipper.hidden-project');
+                // Find all projects that are currently hidden
+                const hiddenProjects = Array.from(projects).filter(p => p.style.display === 'none');
                 
                 let count = 0;
+                // Loop through only the hidden projects and show them
                 for (let i = 0; i < hiddenProjects.length; i++) {
                     if (count < loadIncrement) {
-                        hiddenProjects[i].classList.remove('hidden-project');
+                        hiddenProjects[i].style.display = 'block';
                         count++;
                     } else {
-                        break;
+                        break; // Stop after loading the increment
                     }
                 }
 
-                // Hide button if no more hidden projects are left
-                if (grid.querySelectorAll('.project-card-flipper.hidden-project').length === 0) {
-                    button.classList.add('hidden-btn');
+                // Check again if any projects are *still* hidden
+                const remainingHidden = Array.from(projects).filter(p => p.style.display === 'none');
+                
+                // User Request: Hide button if no more hidden projects are left
+                if (remainingHidden.length === 0) {
+                    button.style.display = 'none';
                 }
             });
         });
@@ -887,7 +903,7 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = '';
 
         if (cart.length === 0) {
-            container.innerHTML = ''; 
+            container.innerHTML = '';
             if(btn) btn.disabled = true;
         } else {
             cart.forEach(item => {
@@ -971,7 +987,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 const tabId = link.dataset.tab;
 
-                if (!tabId) return; 
+                if (!tabId) return;
 
                 navLinks.forEach(nav => nav.classList.remove('active'));
                 link.classList.add('active');
