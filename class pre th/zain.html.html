@@ -1,46 +1,164 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>test code</title>
-	<link rel="icon" type="img/png"href="n1.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zain's Test Code</title>
+    <link rel="icon" type="image/png" href="n1.jpg"> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            /* Image background */
+            background-image: url('n1.jpg'); /* Assuming n1.jpg is in the same folder */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .overlay {
+            background-color: rgba(255, 255, 255, 0.85); /* Light overlay */
+            min-height: 100vh;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #023e8a;
+            font-weight: 600;
+            text-align: center;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            padding: 1rem 0;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 1.5rem 0;
+        }
+        .image-gallery {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+        .image-gallery img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 3px solid #eee;
+        }
+        ul, ol {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        .html-def {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 1.1rem;
+        }
+        .html-def del { color: #e63946; }
+        .html-def b { color: #1d3557; }
+        .html-def i { color: #457b9d; }
+        .html-def ins { color: #2a9d8f; text-decoration: none; }
+
+        details {
+            margin: 1.5rem 0;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        summary {
+            padding: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: #023e8a;
+        }
+        details p {
+            padding: 0 1rem 1rem 1rem;
+            margin: 0;
+        }
+    </style>
 </head>
-<body background="n1.jpg">
-	<marquee scrollamount="100">
-<h1>welcome to lab</h1>
-</marquee>
-<a href="https://www.bing.com/search?q=youtube&cvid=60fa59ca9b124925a25fabf334ec5163&aqs=edge/"target="blank">
-<h1>heading 1</h1>
-<hr>
-</a>
-<p><hr>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commod<br>
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<hr></p>
-<hr>
-<div class="zain1">
-<img src="n2.jpg" height="100" width="100">
-<img src="n3.jpg" height="100" width="100">
-<img src="n4.jpg" height="100" width="100">
-</div>
-<ol>
-	<li>hello 1</li>
-	<li>hello 2</li>
-	<li>hello 3</li>
-</ol>
-<hr>
-html<br>
-    <dd><del>hyper</del><b>text</b><i>merkup</i><ins>language</ins>
-<hr>
-<ul>
-	<li>hello</li>
-	<li>world</li>
-</ul>
-<hr>
-<details>
-	<summary>click hear</summary>
-	<p>hey you clicked</p>
-</details>
+<body>
+    <div class="overlay">
+        <div class="container">
+            <h1>Welcome to Lab</h1>
+            
+            <a href="https://www.bing.com/search?q=youtube" target="_blank">
+                <h1>Heading 1 (Link to Bing)</h1>
+            </a>
+            <hr>
+            
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <hr>
+            
+            <div class="image-gallery">
+                <img src="n2.jpg" alt="Image 2">
+                <img src="n3.jpg" alt="Image 3">
+                <img src="n4.jpg" alt="Image 4">
+            </div>
+            
+            <ol>
+                <li>hello 1</li>
+                <li>hello 2</li>
+                <li>hello 3</li>
+            </ol>
+            <hr>
+            
+            <div class="html-def">
+                HTML:<br>
+                <del>hyper</del> <b>text</b> <i>markup</i> <ins>language</ins>
+            </div>
+            <hr>
+            
+            <ul>
+                <li>hello</li>
+                <li>world</li>
+            </ul>
+            <hr>
+            
+            <details>
+                <summary>Click here</summary>
+                <p>Hey, you clicked!</p>
+            </details>
+        </div>
+    </div>
 </body>
 </html>

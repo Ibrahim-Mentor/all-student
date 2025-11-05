@@ -1,75 +1,153 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>welcome to lab</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zishan's Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fdfdfd;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            color: #333;
+        }
+        .header-bar {
+            text-align: center;
+            border: 2px double #4caf50;
+            background: #f0fff0;
+            padding: 1rem;
+            font-size: 1.5rem; /* Reduced from 39px */
+            font-weight: 600;
+            border-radius: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .header-bar span {
+            margin: 0 1.5rem;
+        }
+        .content-box {
+           text-align: center;
+           background: #e6f7ff;
+           border: 1px solid #b3e0ff;
+           padding: 1.5rem;
+           margin: 1.5rem 0;
+           border-radius: 8px;
+        }
+        .content-box p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        ul, ol {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            text-align: left;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        .list-group {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .list-box {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem;
+        }
+        details {
+            margin: 1.5rem 0;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        summary {
+            padding: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: #007bff;
+        }
+        details p {
+            padding: 0 1rem 1rem 1rem;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-<h1>heading</h1>
-<h2>heading</h2>
-<h3>heading</h3>
-<h4>heading</h4>
-<h5>heading</h5>
-<h6>heading</h6>
-	
-<style>
-	span{
-		margin-left:40px;
-	}
-	.h1{
-		text-align:center;
-		barder:double;
-		background:papayawhip;
-	}
-	.h2{
-        background:springgreen;
-        barder:double;
-	}
-    .h3{
-	   text-align:center;
-	   background:springgreen;
-    }	
-</style>
-<font size="39px">       
-<marquee scrollamount=20px>
-<span>wlecome to lab</span>
-<span>zishan</span>
-<span>usman</span>
-<span>roll no 18</span>
-<span>class 9th</span>
-<span>computer no 20</span>
-</marquee>
-<div class="h3">
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
-</font>
-<ol>
-	<li>name</li>
-	<li>class</li>
-	<li>roll no</li>
-</ol>
-	<li>zishan usman</li>
-	<li>pre nine</li>
-	<li>18</li>
-	<ul>
-		<li>my name</li>
-		<li>my car</li>
-		<li>my class</li>
-	</ul>
-	<ul>
-	<li>zishan</li>
-	<li>bmw m5</li>
-	<li>pre 9th</li>
-</ul>
-<details>
-<summary>click to open</summary>
-<p>hey!how are you</p>
-<p>I am a fine</p>
-</details>
+    <div class="container">
+        <h1>Headings</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+            
+        <div class="header-bar">
+            <span>Welcome to lab</span>
+            <span>Zishan</span>
+            <span>Usman</span>
+            <span>Roll no 18</span>
+            <span>Class 9th</span>
+            <span>Computer no 20</span>
+        </div>
+        
+        <div class="content-box">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+
+        <div class="list-group">
+            <div class="list-box">
+                <h3>Info:</h3>
+                <ol>
+                    <li>Name</li>
+                    <li>Class</li>
+                    <li>Roll No</li>
+                </ol>
+                <ul>
+                    <li>Zishan Usman</li>
+                    <li>Pre-Nine</li>
+                    <li>18</li>
+                </ul>
+            </div>
+            <div class="list-box">
+                <h3>My Stuff:</h3>
+                <ul>
+                    <li>My Name</li>
+                    <li>My Car</li>
+                    <li>My Class</li>
+                </ul>
+                <ul>
+                    <li>Zishan</li>
+                    <li>BMW M5</li>
+                    <li>Pre-9th</li>
+                </ul>
+            </div>
+        </div>
+        
+        <details>
+            <summary>Click to open</summary>
+            <p>Hey! How are you?</p>
+            <p>I am fine.</p>
+        </details>
+    </div>
 </body>
 </html>

@@ -1,51 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>shaheer class pre9</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaheer's Page (Class Pre-9)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #34a0a4;
+            font-weight: 600;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        ul, ol, dl {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+        }
+        li, dt, dd {
+            margin-bottom: 0.5rem;
+        }
+        .html-def {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 1.1rem;
+        }
+        .html-def del { color: #e63946; }
+        .html-def b { color: #1d3557; }
+        .html-def i { color: #457b9d; }
+        .html-def ins { color: #2a9d8f; text-decoration: none; }
+        
+        details {
+            margin: 1.5rem 0;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        summary {
+            padding: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: #34a0a4;
+        }
+        details p {
+            padding: 0 1rem 1rem 1rem;
+            margin: 0;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-    <marquee scrollamount="10">
-<h1>welcome to lab</h1>
-</marquee>
-<a href="https://www.youtube/"  targat="black">
-<h1>heading</h1>
-</a>
-<marquee direction="up">
-<p><hr>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo<br>
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<hr></p>
-</marquee>
-<img src="s1.jpg">
-<ol>
-	 <li>hello1</li>
-	 <li>hello2</li>
-	 <li>hellow3</li>
-</ol>
-<hr>
-html<br>
-<del>hyper</del><b>text</b><i>markup</i><ins>language</ins>
-<hr>
+    <div class="container">
+        <h1>Welcome to Lab</h1>
+        
+        <a href="https://www.youtube.com/" target="_blank">
+            <h1>Heading Link to YouTube</h1>
+        </a>
+        
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        
+        <img src="s1.jpg" alt="BMW Car">
+        
+        <h3>Ordered List</h3>
+        <ol>
+             <li>hello 1</li>
+             <li>hello 2</li>
+             <li>hello 3</li>
+        </ol>
+        <hr>
+        
+        <div class="html-def">
+            HTML: <del>hyper</del> <b>text</b> <i>markup</i> <ins>language</ins>
+        </div>
+        <hr>
 
-<ul>
-	<li>hello</li>
-	<li>world</li>
-	</ul>
-	<hr>
-	<details>
-		<summary>assalam.o.alaikum click for this arrow and scroll</summary>
-		<p>how are you<br>ithink you are fine</p>
-	</details>
-		<dl>
-			<marquee direction="down">
-			<dl>mango</dl>
-		</marquee>
-			<dl>banana</dl>
-			<dl>apple</dl>
-		</dl>
+        <h3>Unordered List</h3>
+        <ul>
+            <li>hello</li>
+            <li>world</li>
+        </ul>
+        <hr>
+        
+        <details>
+            <summary>Assalam-o-Alaikum! Click to open.</summary>
+            <p>How are you? <br> I think you are fine.</p>
+        </details>
+        
+        <h3>Definition List</h3>
+        <dl>
+            <dt>Mango</dt>
+            <dd>A yellow tropical fruit.</dd>
+            <dt>Banana</dt>
+            <dd>A yellow curved fruit.</dd>
+            <dt>Apple</dt>
+            <dd>A red or green round fruit.</dd>
+        </dl>
+    </div>
 </body>
 </html>

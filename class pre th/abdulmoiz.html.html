@@ -1,47 +1,114 @@
-  <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Moiz's Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #d90429; /* Red */
+            text-align: center;
+        }
+        /* Simple animation to replace marquee */
+        .animated-text {
+            animation: color-change 3s infinite alternate;
+        }
+        @keyframes color-change {
+            from { color: #d90429; }
+            to { color: #ff8c00; }
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+        .image-gallery {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+        .image-gallery img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 3px solid #eee;
+        }
+        ul, ol {
+            margin-left: 1.5rem;
+            padding: 0.5rem 0;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
 </head>
-<body>	
-	<title>test code</title>
-<h1>heading welcome</h1>
-<marquee scrollamount="200">
-<h1 style="color:red">heading </h1> 
-</marquee>
-<a href="https"://www.youtoub/>
-</a>
-<h1>heading</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo<br>
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.	
-<hr></p> 
-<div>
-<img src="img/h1.1jpg"heigth="100" width="100">
-<img src="h2.2jpg"heigth="100" width="100">
-<img src="h3.jpg"heigth="100" width="100">
-<img src="h4.jpg"heigth="100" width="100">
-</div>
-<ol>
-<li> welcome to lab bro you have nice </li>	
-<li> welcome to lab bro you have nice </li>	
-<li> welcome to lab bro you have nice </li>	
-</ol>
+<body>
+    <div class="container">
+        <h1>Heading Welcome</h1>
+        
+        <h1 class="animated-text">Heading</h1> 
+        
+        <a href="https://www.youtube.com/" target="_blank">
+            <h1>Go to YouTube</h1>
+        </a>
+        
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.	
+        </p> 
+        
+        <div class="image-gallery">
+            <img src="https://source.unsplash.com/100x100/?car,1" alt="Image 1">
+            <img src="https://source.unsplash.com/100x100/?car,2" alt="Image 2">
+            <img src="https://source.unsplash.com/100x100/?car,3" alt="Image 3">
+            <img src="https://source.unsplash.com/100x100/?car,4" alt="Image 4">
+        </div>
+        
+        <h3>Ordered List:</h3>
+        <ol>
+            <li>Welcome to lab bro you have nice</li>	
+            <li>Welcome to lab bro you have nice</li>	
+            <li>Welcome to lab bro you have nice</li>	
+        </ol>
 
-<ul>
-<br>	
-<li> welcome to lab bro you have nice </li>
-<li> welcome to lab bro you have nice </li>
-<li> welcome to lab bro you have nice </li>
-</ul>
-</br>
-
-
-
-
-
-
+        <h3>Unordered List:</h3>
+        <ul>
+            <li>Welcome to lab bro you have nice</li>
+            <li>Welcome to lab bro you have nice</li>
+            <li>Welcome to lab bro you have nice</li>
+        </ul>
+    </div>
 </body>
 </html>

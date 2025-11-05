@@ -1,0 +1,403 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopNova | Your One-Stop Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. General & Body Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        h1, h2, h3 {
+            color: #1a202c;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        
+        /* --- 2. Header & Navigation --- */
+        .main-header {
+            background-color: #ffffff;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #4a90e2;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .main-nav a {
+            color: #4a5568;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .main-nav a:hover {
+            color: #4a90e2;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        #cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #e53e3e;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        /* --- 3. Side-by-Side Video Section --- */
+        .video-hero {
+            display: flex;
+            justify-content: center;
+            gap: 1rem; /* Space between videos */
+            width: 100%;
+        }
+        
+        .video-hero video {
+            width: 45%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* --- 4. Image Marquee --- */
+        .image-marquee-section {
+            background-color: #fff;
+            padding: 1.5rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .marquee-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 30s linear infinite;
+        }
+
+        .marquee-item {
+            display: inline-block;
+            margin: 0 2.5rem;
+            vertical-align: middle;
+        }
+        
+        .marquee-item img {
+            height: 50px; /* Adjust based on logo size */
+            max-width: 150px;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .marquee-item img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        /* --- 5. Product Grid --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .product-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: #4a90e2;
+            margin-bottom: 1rem;
+        }
+        
+        .add-to-cart-btn {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .add-to-cart-btn:hover {
+            background-color: #357ABD;
+        }
+
+        /* --- 6. Testimonials Section --- */
+        .testimonials-grid {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .testimonial-card {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            max-width: 350px;
+            text-align: center;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card cite {
+            font-weight: bold;
+            color: #2d3748;
+        }
+        
+        /* --- 7. Footer --- */
+        .main-footer {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+        }
+        
+        /* --- 8. Cart Drawer (No changes needed) --- */
+        /* Styles from previous version are kept here */
+        .cart-drawer{position:fixed;top:0;right:-100%;width:350px;height:100%;background-color:white;box-shadow:-4px 0 15px rgba(0,0,0,0.1);transition:right 0.4s ease-in-out;z-index:2000;display:flex;flex-direction:column}.cart-drawer.is-open{right:0}.cart-header{padding:1rem;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center}.cart-header h3{margin:0}#close-cart-btn{background:none;border:none;font-size:1.5rem;cursor:pointer}#cart-items{list-style:none;padding:1rem;flex-grow:1;overflow-y:auto}.cart-item{display:flex;margin-bottom:1rem;border-bottom:1px solid #f0f4f8;padding-bottom:1rem}.cart-item img{width:60px;height:60px;object-fit:cover;border-radius:5px;margin-right:1rem}.cart-item-info p{margin:0}.cart-footer{padding:1rem;border-top:1px solid #e2e8f0}.checkout-btn{background-color:#38a169;color:white;border:none;padding:1rem;width:100%;font-size:1rem;font-weight:bold;border-radius:5px;cursor:pointer}
+
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="logo">
+                <img src="E:\Student Work\Moiz\new-store\img\logo\logo.png" alt="ShopNova Logo">
+            </div>
+            <nav class="main-nav">
+                <a href="#">Home</a>
+                <a href="#products">Products</a>
+                <a href="#testimonials">Reviews</a>
+            </nav>
+            <div class="cart-icon" id="cart-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="video-hero">
+             <video autoplay loop muted playsinline>
+                <source src="E:\Student Work\Moiz\new-store\video\video1.mp4" type="video/mp4">
+            </video>
+            <video autoplay loop muted playsinline>
+                <source src="E:\Student Work\Moiz\new-store\video\video2.mp4" type="video/mp4">
+            </video>
+        </section>
+
+        <section class="image-marquee-section">
+            <div class="marquee-content">
+                <div class="marquee-item"><img src="https://placehold.co/200x80/000/fff?text=Brand+A" alt="Brand A"></div>
+                <div class="marquee-item"><img src="https://placehold.co/200x80/000/fff?text=Brand+B" alt="Brand B"></div>
+                <div class="marquee-item"><img src="https://placehold.co/200x80/000/fff?text=Brand+C" alt="Brand C"></div>
+                <div class="marquee-item"><img src="https://placehold.co/200x80/000/fff?text=Brand+D" alt="Brand D"></div>
+                <div class="marquee-item"><img src="https://placehold.co/200x80/000/fff?text=Brand+E" alt="Brand E"></div>
+                <div class="marquee-item"><img src="https://placehold.co/200x80/000/fff?text=Brand+A" alt="Brand A"></div>
+                <div class="marquee-item"><img src="https://placehold.co/200x80/000/fff?text=Brand+B" alt="Brand B"></div>
+                <div class="marquee-item"><img src="https://placehold.co/200x80/000/fff?text=Brand+C" alt="Brand C"></div>
+                <div class="marquee-item"><img src="https://placehold.co/200x80/000/fff?text=Brand+D" alt="Brand D"></div>
+                <div class="marquee-item"><img src="https://placehold.co/200x80/000/fff?text=Brand+E" alt="Brand E"></div>
+            </div>
+        </section>
+        
+        <section id="products" class="container">
+            <h2>Our Featured Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://placehold.co/300x300/3498db/ffffff?text=Product+1" alt="Product 1">
+                    <p class="product-name">Blue Gadget</p>
+                    <p class="product-price">$29.99</p>
+                    <button class="add-to-cart-btn" data-id="1" data-name="Blue Gadget" data-price="29.99" data-image="https://placehold.co/100x100/3498db/ffffff">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://placehold.co/300x300/e74c3c/ffffff?text=Product+2" alt="Product 2">
+                    <p class="product-name">Red Device</p>
+                    <p class="product-price">$45.50</p>
+                    <button class="add-to-cart-btn" data-id="2" data-name="Red Device" data-price="45.50" data-image="https://placehold.co/100x100/e74c3c/ffffff">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://placehold.co/300x300/2ecc71/ffffff?text=Product+3" alt="Product 3">
+                    <p class="product-name">Green Widget</p>
+                    <p class="product-price">$19.95</p>
+                    <button class="add-to-cart-btn" data-id="3" data-name="Green Widget" data-price="19.95" data-image="https://placehold.co/100x100/2ecc71/ffffff">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://placehold.co/300x300/f1c40f/ffffff?text=Product+4" alt="Product 4">
+                    <p class="product-name">Yellow Item</p>
+                    <p class="product-price">$99.00</p>
+                    <button class="add-to-cart-btn" data-id="4" data-name="Yellow Item" data-price="99.00" data-image="https://placehold.co/100x100/f1c40f/ffffff">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="container">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"Absolutely love the quality of the products! Shipping was fast and the customer service was excellent. Will definitely shop here again."</p>
+                    <cite>- Alex Johnson</cite>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I was looking for a very specific item and found it here at a great price. The website is easy to navigate and the checkout process was seamless."</p>
+                    <cite>- Maria Garcia</cite>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Five stars! The team at ShopNova is incredibly helpful. They answered all my questions promptly. Highly recommended."</p>
+                    <cite>- Chris Lee</cite>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <footer class="main-footer">
+        <p>&copy; 2025 ShopNova. All Rights Reserved.</p>
+    </footer>
+
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button id="close-cart-btn">&times;</button>
+        </div>
+        <ul id="cart-items"></ul>
+        <div class="cart-footer">
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartIcon = document.getElementById('cart-icon');
+            const cartDrawer = document.getElementById('cart-drawer');
+            const closeCartBtn = document.getElementById('close-cart-btn');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+            const cartItemsList = document.getElementById('cart-items');
+            const cartCount = document.getElementById('cart-count');
+            
+            let cart = [];
+
+            cartIcon.addEventListener('click', () => cartDrawer.classList.add('is-open'));
+            closeCartBtn.addEventListener('click', () => cartDrawer.classList.remove('is-open'));
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const product = {
+                        id: event.target.dataset.id,
+                        name: event.target.dataset.name,
+                        price: parseFloat(event.target.dataset.price),
+                        image: event.target.dataset.image
+                    };
+                    cart.push(product);
+                    updateCartUI();
+                    cartDrawer.classList.add('is-open');
+                });
+            });
+
+            function updateCartUI() {
+                cartItemsList.innerHTML = '';
+                cart.forEach(item => {
+                    const li = document.createElement('li');
+                    li.classList.add('cart-item');
+                    li.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="cart-item-info">
+                            <p class="item-name">${item.name}</p>
+                            <p class="item-price">$${item.price.toFixed(2)}</p>
+                        </div>`;
+                    cartItemsList.appendChild(li);
+                });
+                cartCount.textContent = cart.length;
+            }
+        });
+    </script>
+</body>
+</html>

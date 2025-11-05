@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Demo Site with Carousel</title>
+    <!-- Load Tailwind CSS -->
+<!--     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"> -->
+    <style>
+        .category-card.bg-white.p-4.sm\:p-6.flex.flex-col.items-center.justify-center.rounded-xl.shadow-lg.hover\:shadow-xl.hover\:ring-2.hover\:ring-indigo-500.transition.duration-300.ease-in-out.cursor-pointer {
+    background: cornflowerblue;
+}
+        /* Apply Inter font family and custom background */
+        body {
+                font-family: cursive;
+            /*font-family: 'Inter', sans-serif;*/
+            background-color: #f0f4f8; /* Light blue-gray background */
+        }
+        /* Custom styles for the carousel arrows */
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 1rem 0.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            user-select: none;
+        }
+        .carousel-arrow:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+/*.Moiz{
+    font-size:30px;
+color:blue;
+border:8;
+}*/
+    </style>
+</head>
+<body>
+
+    <!-- Main Application Container -->
+    <div class="min-h-screen flex flex-col items-center p-4 sm:p-8">
+
+        <!-- Header -->
+        <header class="w-full max-w-6xl text-center mb-10">
+            <h1 class="text-4xl font-extrabold text-gray-900 mb-2">Welcome to ShopNova</h1>
+            <p class="text-lg text-gray-600">Your one-stop destination for quality products.</p>
+        </header>
+
+        <!-- === 1. IMAGE CAROUSEL SECTION (Topmost Element) === -->
+        <section class="w-full max-w-6xl mb-12">
+            <div id="carousel-container" class="relative overflow-hidden rounded-xl shadow-2xl">
+                <!-- Image Display Area -->
+                <img id="carousel-image"
+                     src=""
+                     alt="Promotional Banner"
+                     class="w-full h-48 sm:h-64 md:h-80 object-cover transition-opacity duration-500 ease-in-out">
+                
+                <!-- Overlay Buttons for Navigation -->
+                <button onclick="prevSlide()" class="carousel-arrow left-0 ml-4 rounded-l-full">
+                    <!-- Left Arrow SVG Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button onclick="nextSlide()" class="carousel-arrow right-0 mr-4 rounded-r-full">
+                    <!-- Right Arrow SVG Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+
+                <!-- Dots/Indicators (Optional: For future implementation) -->
+                <!-- <div id="carousel-dots" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2"></div> -->
+            </div>
+        </section>
+
+        <!-- === 2. PRODUCT CATEGORY SECTION === -->
+        <main class="w-full max-w-6xl">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-indigo-400 pb-2">Browse Categories</h2>
+
+            <div id="category-grid" class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 sm:gap-6">
+
+                <!-- Category Card Template (Will be repeated for each category) -->
+
+                <div class="category-card bg-white p-4 sm:p-6 flex flex-col items-center justify-center rounded-xl shadow-lg hover:shadow-xl hover:ring-2 hover:ring-indigo-500 transition duration-300 ease-in-out cursor-pointer">
+                    <span class="text-4xl sm:text-5xl mb-2" role="img" aria-label="Electronics">💻</span>
+                    <p class="text-sm font-semibold text-gray-700 text-center">Electronics</p>
+                </div>
+               <div class="Moiz">
+                <div class="category-card bg-white p-4 sm:p-6 flex flex-col items-center justify-center rounded-xl shadow-lg hover:shadow-xl hover:ring-2 hover:ring-indigo-500 transition duration-300 ease-in-out cursor-pointer">
+                    <span class="text-4xl sm:text-5xl mb-2" role="img" aria-label="Fashion">👚</span>
+                    <p class="text-sm font-semibold text-gray-700 text-center">Fashion</p>
+                </div>
+                       </div>
+
+                <div class="category-card bg-white p-4 sm:p-6 flex flex-col items-center justify-center rounded-xl shadow-lg hover:shadow-xl hover:ring-2 hover:ring-indigo-500 transition duration-300 ease-in-out cursor-pointer">
+                    <span class="text-4xl sm:text-5xl mb-2" role="img" aria-label="Home Goods">🛋</span>
+                    <p class="text-sm font-semibold text-gray-700 text-center">Home Goods</p>
+                </div>
+
+                <div class="category-card bg-white p-4 sm:p-6 flex flex-col items-center justify-center rounded-xl shadow-lg hover:shadow-xl hover:ring-2 hover:ring-indigo-500 transition duration-300 ease-in-out cursor-pointer">
+                    <span class="text-4xl sm:text-5xl mb-2" role="img" aria-label="Books">📚</span>
+                    <p class="text-sm font-semibold text-gray-700 text-center">Books</p>
+                </div>
+
+                <div class="category-card bg-white p-4 sm:p-6 flex flex-col items-center justify-center rounded-xl shadow-lg hover:shadow-xl hover:ring-2 hover:ring-indigo-500 transition duration-300 ease-in-out cursor-pointer">
+                    <span class="text-4xl sm:text-5xl mb-2" role="img" aria-label="Sports">🏀</span>
+                    <p class="text-sm font-semibold text-gray-700 text-center">Sports</p>
+                </div>
+
+                <div class="category-card bg-white p-4 sm:p-6 flex flex-col items-center justify-center rounded-xl shadow-lg hover:shadow-xl hover:ring-2 hover:ring-indigo-500 transition duration-300 ease-in-out cursor-pointer">
+                    <span class="text-4xl sm:text-5xl mb-2" role="img" aria-label="Groceries">🍎</span>
+                    <p class="text-sm font-semibold text-gray-700 text-center">Groceries</p>
+                </div>
+
+
+            </div>
+        </main>
+    </div>
+
+    <!-- JavaScript for Carousel Functionality -->
+    <script>
+        // Array of image paths for the carousel (using placeholders for a fully self-contained file)
+        const images = [
+            "https://placehold.co/1200x400/3b82f6/ffffff?text=New+Spring+Collection", // Blue
+            "https://placehold.co/1200x400/10b981/ffffff?text=70%25+Off+Electronics",  // Green
+            "https://placehold.co/1200x400/ef4444/ffffff?text=Weekend+Flash+Sale",     // Red
+            "https://placehold.co/1200x400/8b5cf6/ffffff?text=Discover+Home+Decor"    // Purple
+        ];
+
+        let currentSlide = 0;
+        const carouselImage = document.getElementById('carousel-image');
+
+        /**
+         * Updates the image source based on the currentSlide index.
+         */
+        function showSlide() {
+            // Apply opacity transition classes
+            carouselImage.classList.add('opacity-0');
+
+            // Wait for the fade out to complete before changing the source
+            setTimeout(() => {
+                carouselImage.src = images[currentSlide];
+                // Fade back in
+                carouselImage.classList.remove('opacity-0');
+            }, 250); // Match this timing to the CSS transition duration (duration-300)
+        }
+
+        /**
+         * Moves the carousel to the next image, wrapping around to the start.
+         */
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % images.length;
+            showSlide();
+        }
+
+        /**
+         * Moves the carousel to the previous image, wrapping around to the end.
+         */
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + images.length) % images.length;
+            showSlide();
+        }
+
+        // Initialize: Show the first slide when the page loads
+        window.onload = () => {
+             showSlide();
+             // Optional: Auto-advance the carousel every 5 seconds
+             setInterval(nextSlide, 5000);
+        };
+    </script>
+
+</body>
+</html>
