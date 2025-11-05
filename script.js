@@ -3,12 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- SITE-WIDE DATA ---
 
     const studentProjects = [
-        // --- 8th Grade (Original) ---
+        // --- Special Class (Original 8th) ---
         {
             name: "Azan",
             title: "World of Shine - Professional Cleaning Services",
             url: "https://ibrahim-mentor.github.io/azan/",
-            projectClass: "8th Grade",
+            projectClass: "Special Class",
             qualifications: "Web Development",
             quality: "Creative & Dedicated",
             whatsapp: "923176428132",
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Umar",
             title: "Rayelle - Premium Eyewear",
             url: "https://ibrahim-mentor.github.io/umar-store/",
-            projectClass: "8th Grade",
+            projectClass: "Special Class",
             qualifications: "Full Stack with Technical Skills",
             quality: "Detail-Oriented",
             whatsapp: "923356461817", 
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Moiz",
             title: "MN Store - Modern Homepage",
             url: "https://ibrahim-mentor.github.io/moiz/",
-            projectClass: "8th Grade",
+            projectClass: "Special Class",
             qualifications: "Full-Stack Student",
             quality: "Problem Solver",
             whatsapp: "923160072910", 
@@ -38,19 +38,19 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Umar",
             title: "Nokia Car Game",
             url: "https://ibrahim-mentor.github.io/nokia-car-game/",
-            projectClass: "8th Grade",
+            projectClass: "Special Class",
             qualifications: "Full Stack with Technical Skills",
             quality: "Detail-Oriented",
             whatsapp: "923356461817", 
             image: "https://source.unsplash.com/150x150/?person,man"
         },
 
-        // --- Pre-9th Grade (New) ---
+        // --- 8th Grade (Was Pre-9th) ---
         {
             name: "Abdul Moiz",
             title: "Student Welcome Page",
-            url: "class pre th/abdulmoiz.html.html",
-            projectClass: "Pre-9th Grade",
+            url: "class 8/abdulmoiz.html.html",
+            projectClass: "8th Grade",
             qualifications: "HTML Basics",
             quality: "Creative",
             whatsapp: "923236528812",
@@ -59,48 +59,48 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: "Anas",
             title: "Student Lab Page",
-            url: "class pre th/anas.html",
-            projectClass: "Pre-9th Grade",
+            url: "class 8/anas.html",
+            projectClass: "8th Grade",
             qualifications: "HTML & CSS",
             quality: "Enthusiastic",
             whatsapp: "923236528812",
-            image: "class pre th/a1.jpg"
+            image: "class 8/a1.jpg"
         },
         {
             name: "Hamza",
             title: "Student Personal Page",
-            url: "class pre th/HAMZA.html",
-            projectClass: "Pre-9th Grade",
+            url: "class 8/HAMZA.html",
+            projectClass: "8th Grade",
             qualifications: "HTML & Inline CSS",
             quality: "Colorful",
             whatsapp: "923236528812",
-            image: "class pre th/h2.jpg"
+            image: "class 8/h2.jpg"
         },
         {
-            name: "Mohsin (Pre-9th)",
+            name: "Mohsin (8th)",
             title: "Student Test Page",
-            url: "class pre th/mohsin.html",
-            projectClass: "Pre-9th Grade",
+            url: "class 8/mohsin.html",
+            projectClass: "8th Grade",
             qualifications: "HTML & Lists",
             quality: "Learning",
             whatsapp: "923236528812",
-            image: "class pre th/12.jpg"
+            image: "class 8/12.jpg"
         },
         {
             name: "Shaheer",
             title: "First HTML Project",
-            url: "class pre th/shaeer.html.html",
-            projectClass: "Pre-9th Grade",
+            url: "class 8/shaeer.html.html",
+            projectClass: "8th Grade",
             qualifications: "HTML Tags",
             quality: "Beginner",
             whatsapp: "923236528812",
-            image: "class pre th/s1.jpg"
+            image: "class 8/s1.jpg"
         },
         {
             name: "Zain",
             title: "Student Test Code",
-            url: "class pre th/zain.html.html",
-            projectClass: "Pre-9th Grade",
+            url: "class 8/zain.html.html",
+            projectClass: "8th Grade",
             qualifications: "HTML Basics",
             quality: "Curious",
             whatsapp: "923236528812",
@@ -109,12 +109,154 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: "Zishan",
             title: "Student Welcome Page",
-            url: "class pre th/zishan.html",
-            projectClass: "Pre-9th Grade",
+            url: "class 8/zishan.html",
+            projectClass: "8th Grade",
             qualifications: "HTML & Basic CSS",
             quality: "Structured",
             whatsapp: "923236528812",
             image: "https://source.unsplash.com/150x150/?person,student,3"
+        },
+
+        // --- 7th Grade (New) ---
+         {
+            name: "Kumail Raiz",
+            title: "HTML Basics Page",
+            url: "class 7th/Kumail Raiz.html",
+            projectClass: "7th Grade",
+            qualifications: "HTML Basics",
+            quality: "Learning",
+            whatsapp: "923236528812",
+            image: "https://source.unsplash.com/150x150/?person,student,4"
+        },
+        {
+            name: "Abbas Ahmad",
+            title: "HTML Basics Page",
+            url: "class 7th/Abbas Ahmad.html",
+            projectClass: "7th Grade",
+            qualifications: "HTML Basics",
+            quality: "Learning",
+            whatsapp: "923236528812",
+            image: "https://source.unsplash.com/150x150/?person,student,4"
+        },
+        {
+            name: "Abdul Rafay",
+            title: "First HTML Page",
+            url: "class 7th/abdul Rafay.html",
+            projectClass: "7th Grade",
+            qualifications: "HTML Formatting",
+            quality: "Beginner",
+            whatsapp: "923236528812",
+            image: "https://source.unsplash.com/150x150/?person,student,5"
+        },
+        {
+            name: "Abdulsamad",
+            title: "HTML Tags Page",
+            url: "class 7th/Abdulsamad.html",
+            projectClass: "7th Grade",
+            qualifications: "HTML Basics",
+            quality: "Curious",
+            whatsapp: "923236528812",
+            image: "https://source.unsplash.com/150x150/?person,student,6"
+        },
+        {
+            name: "Abdul Wahab",
+            title: "Headings Page",
+            url: "class 7th/abdulwahab ashraf.html",
+            projectClass: "7th Grade",
+            qualifications: "HTML Headings",
+            quality: "Learning",
+            whatsapp: "923236528812",
+            image: "https://source.unsplash.com/150x150/?person,student,7"
+        },
+        {
+            name: "Ahmad Qasim",
+            title: "HTML Lists Page",
+            url: "class 7th/Ahmad qasim.html",
+            projectClass: "7th Grade",
+            qualifications: "HTML Lists",
+            quality: "Structured",
+            whatsapp: "923236528812",
+            image: "https://source.unsplash.com/150x150/?person,student,8"
+        },
+        {
+            name: "Azam Asif",
+            title: "HTML Formatting Page",
+            url: "class 7th/Azam Asif.html",
+            projectClass: "7th Grade",
+            qualifications: "HTML Formatting",
+            quality: "Beginner",
+            whatsapp: "923236528812",
+            image: "https://source.unsplash.com/150x150/?person,student,9"
+        },
+        {
+            name: "Azan Alyas",
+            title: "First HTML Project",
+            url: "class 7th/Azan Alyas .html",
+            projectClass: "7th Grade",
+            qualifications: "HTML Basics",
+            quality: "Learning",
+            whatsapp: "923236528812",
+            image: "https://source.unsplash.com/150x150/?person,student,10"
+        },
+        {
+            name: "Azan Amir",
+            title: "HTML Lists Project",
+            url: "class 7th/Azan Amir.Html",
+            projectClass: "7th Grade",
+            qualifications: "HTML Lists",
+            quality: "Beginner",
+            whatsapp: "923236528812",
+            image: "https://source.unsplash.com/150x150/?person,student,11"
+        },
+        {
+            name: "Hussain Maviya",
+            title: "HTML Text Page",
+            url: "class 7th/Hussain Maviya.html",
+            projectClass: "7th Grade",
+            qualifications: "HTML Formatting",
+            quality: "Learning",
+            whatsapp: "923236528812",
+            image: "https://source.unsplash.com/150x150/?person,student,12"
+        },
+        {
+            name: "Hussnain",
+            title: "HTML Tags Page",
+            url: "class 7th/hussnain.html",
+            projectClass: "7th Grade",
+            qualifications: "HTML Basics",
+            quality: "Beginner",
+            whatsapp: "923236528812",
+            image: "https://source.unsplash.com/150x150/?person,student,13"
+        },
+        {
+            name: "M. Abdullah Abrar",
+            title: "HTML Lists Page",
+            url: "class 7th/M.Abdullah Abrar.html",
+            projectClass: "7th Grade",
+            qualifications: "HTML Lists",
+            quality: "Structured",
+            whatsapp: "923236528812",
+            image: "https://source.unsplash.com/150x150/?person,student,14"
+        },
+        {
+            name: "Naeem Qasim",
+            title: "First HTML Page",
+            url: "class 7th/Naeem.Qasim.html",
+            projectClass: "7th Grade",
+            qualifications: "HTML Basics",
+            quality: "Learning",
+            whatsapp: "923236528812",
+            image: "https://source.unsplash.com/150x150/?person,student,15"
+        },
+        {
+            name: "Subhan Nasir",
+            title: "HTML Formatting Page",
+            url: "class 7th/suhban nasir.html",
+            projectClass: "7th Grade",
+            qualifications: "HTML Formatting",
+            quality: "Beginner",
+            whatsapp: "923236528812",
+            image: "httpss://source.unsplash.com/150x150/?person,student,16"
         },
 
         // --- 6th Grade (New) ---
@@ -385,17 +527,20 @@ document.addEventListener('DOMContentLoaded', () => {
         themeManager.init();
         cartManager.init();
 
-        // Check if we are on the projects page by looking for one of the new grid IDs
-        if (document.getElementById('projectsGrid8th')) {
-            renderProjects();
+        // Check if we are on the projects page (has a grid for special class)
+        if (document.getElementById('projectsGridSpecial')) {
+            renderAllProjects();
+            initializeLoadMore(); // Setup "Load More" buttons
             document.addEventListener('themeChanged', () => generateAllQRCodes());
         }
+        
         // Check if we are on the *index* page
         if (document.getElementById('projectsGrid')) {
              // This is the homepage grid, render a limited view
              renderHomepageProjects();
-             document.addEventListener('themeChanged', () => generateAllQRCodes());
+             document.addEventListener('themeChanged', () => generateHomepageQRCodes(studentProjects.slice(0, 4)));
         }
+
         if (document.getElementById('contactForm')) {
             handleContactForm();
         }
@@ -416,12 +561,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- RENDER PROJECTS (FLIP CARD with QR) ---
-    // This function now renders for the main projects.html page
-    function renderProjects() {
+    // --- RENDER ALL PROJECTS (PROJECTS.HTML) ---
+    function renderAllProjects() {
         const grids = {
+            'Special Class': document.getElementById('projectsGridSpecial'),
             '8th Grade': document.getElementById('projectsGrid8th'),
-            'Pre-9th Grade': document.getElementById('projectsGridPre9th'),
+            '7th Grade': document.getElementById('projectsGrid7th'),
             '6th Grade': document.getElementById('projectsGrid6th')
         };
 
@@ -430,10 +575,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         studentProjects.forEach((project, index) => {
             const targetGrid = grids[project.projectClass];
-            if (!targetGrid) {
-                // This will skip projects with a class that doesn't have a grid
-                return; 
-            }
+            if (!targetGrid) return; 
             
             const cardFlipper = document.createElement('div');
             cardFlipper.className = 'project-card-flipper';
@@ -485,16 +627,16 @@ document.addEventListener('DOMContentLoaded', () => {
         
         generateAllQRCodes();
     }
-    
-    // This function renders a few projects for the homepage
+
+    // --- RENDER HOMEPAGE PROJECTS (INDEX.HTML) ---
     function renderHomepageProjects() {
         const projectsGrid = document.getElementById('projectsGrid');
         if (!projectsGrid) return;
         
         projectsGrid.innerHTML = '';
         
-        // Show only the first 4 projects (or a mix) for the homepage
-        const featuredProjects = studentProjects.slice(0, 4);
+        // Show only the first 4 "Special Class" projects for the homepage
+        const featuredProjects = studentProjects.filter(p => p.projectClass === 'Special Class').slice(0, 4);
 
         featuredProjects.forEach((project, index) => {
             const cardFlipper = document.createElement('div');
@@ -541,12 +683,59 @@ document.addEventListener('DOMContentLoaded', () => {
             projectsGrid.appendChild(cardFlipper);
         });
         
-        // Must call the QR code generator after rendering
         generateHomepageQRCodes(featuredProjects);
     }
 
+    // --- LOAD MORE BUTTON LOGIC ---
+    function initializeLoadMore() {
+        const isMobile = window.innerWidth <= 768;
+        const initialShow = isMobile ? 4 : 8;
+        const loadIncrement = isMobile ? 4 : 8;
 
-    // --- QR CODE GENERATION (MODIFIED) ---
+        const loadMoreButtons = document.querySelectorAll('.load-more-btn');
+
+        loadMoreButtons.forEach(button => {
+            const gridId = button.dataset.grid;
+            const grid = document.getElementById(gridId);
+            if (!grid) return;
+
+            const projects = grid.querySelectorAll('.project-card-flipper');
+            
+            // Hide projects beyond the initial limit
+            projects.forEach((project, index) => {
+                if (index >= initialShow) {
+                    project.classList.add('hidden-project');
+                }
+            });
+
+            // If not enough projects to hide, hide the button
+            if (projects.length <= initialShow) {
+                button.classList.add('hidden-btn');
+            }
+
+            // Add click event
+            button.addEventListener('click', () => {
+                const hiddenProjects = grid.querySelectorAll('.project-card-flipper.hidden-project');
+                
+                let count = 0;
+                for (let i = 0; i < hiddenProjects.length; i++) {
+                    if (count < loadIncrement) {
+                        hiddenProjects[i].classList.remove('hidden-project');
+                        count++;
+                    } else {
+                        break;
+                    }
+                }
+
+                // Hide button if no more hidden projects are left
+                if (grid.querySelectorAll('.project-card-flipper.hidden-project').length === 0) {
+                    button.classList.add('hidden-btn');
+                }
+            });
+        });
+    }
+
+    // --- QR CODE GENERATION (FOR ALL PROJECTS PAGE) ---
     function generateAllQRCodes() {
         const isDarkMode = themeManager.current === 'dark';
         const qrColor = isDarkMode ? '#3b82f6' : '#1d4ed8';
@@ -572,7 +761,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // QR Code generator for homepage
+    // --- QR CODE GENERATION (FOR HOMEPAGE) ---
     function generateHomepageQRCodes(featuredProjects) {
         const isDarkMode = themeManager.current === 'dark';
         const qrColor = isDarkMode ? '#3b82f6' : '#1d4ed8';
