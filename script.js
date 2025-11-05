@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
          {
             name: "Kumail Raiz",
             title: "HTML Basics Page",
-            url: "class 7th/kumail Raiz.html",
+            url: "class 7th/kumail Riaz.html",
             projectClass: "7th Grade",
             qualifications: "HTML Basics",
             quality: "Learning",
