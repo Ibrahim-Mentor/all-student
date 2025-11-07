@@ -558,7 +558,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById('projectsGrid')) {
              // This is the homepage grid, render a limited view
              renderHomepageProjects();
-             document.addEventListener('themeChanged', () => generateHomepageQRCodes(studentProjects.slice(0, 4)));
+             document.addEventListener('themeChanged', () => generateHomepageQRCodes(studentProjects.slice(0, 6)));
         }
 
         if (document.getElementById('contactForm')) {
