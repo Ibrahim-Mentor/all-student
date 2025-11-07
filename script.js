@@ -15,6 +15,26 @@ document.addEventListener('DOMContentLoaded', () => {
             image: "https://source.unsplash.com/150x150/?person,boy"
         },
         {
+            name: "Azan Azam",
+            title: "Zaynar - Professional Clothing Brand",
+            url: "https://ibrahim-mentor.github.io/azan-store/",
+            projectClass: "Special Class",
+            qualifications: "Web Development",
+            quality: "Creative & Dedicated",
+            whatsapp: "923176428132",
+            image: "https://source.unsplash.com/150x150/?person,boy"
+        },
+        {
+            name: "Ali Ahmad",
+            title: "AZM - Premium Men Wear",
+            url: "https://ibrahim-mentor.github.io/ali-store/",
+            projectClass: "Special Class",
+            qualifications: "Web Development",
+            quality: "Creative & Dedicated",
+            whatsapp: "923176428132",
+            image: "https://source.unsplash.com/150x150/?person,boy"
+        },
+        {
             name: "Umar",
             title: "Rayelle - Premium Eyewear",
             url: "https://ibrahim-mentor.github.io/umar-store/",
